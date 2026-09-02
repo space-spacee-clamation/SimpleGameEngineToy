@@ -26,7 +26,7 @@ export const STAGES = [
     id: 'P2', name: '阶段 2 · 对象系统与架构模式', color: '#9b8cff',
     goal: '看懂引擎的对象模型：场景树 vs ECS、Variant、信号与内存策略。',
     lessons: [
-      { id: 'L2.1', title: '场景树 vs ECS：两种世界观', est: '2.5 小时', status: 'planned',
+      { id: 'L2.1', title: '场景树 vs ECS：两种世界观', est: '2.5 小时', status: 'ready',
         brief: '组合优于继承如何落地；数据导向为什么缓存友好。' },
       { id: 'L2.2', title: 'Godot 对象模型：Object / Variant / 信号', est: '2 小时', status: 'planned',
         brief: 'C++ 类如何长出反射、脚本与序列化能力。' },
