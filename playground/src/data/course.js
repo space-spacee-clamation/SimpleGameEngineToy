@@ -8,7 +8,7 @@ export const STAGES = [
     lessons: [
       { id: 'L0.1', title: '用 100 行代码造一个「引擎」', est: '60–90 分钟', status: 'ready',
         brief: '主循环、帧、更新与绘制：引擎的最小内核在浏览器里跑起来。' },
-      { id: 'L0.2', title: '引擎解剖图：Godot / Unity / Unreal 分层对比', est: '90 分钟', status: 'planned',
+      { id: 'L0.2', title: '引擎解剖图：Godot / Unity / Unreal 分层对比', est: '90 分钟', status: 'ready',
         brief: '运行时与工具链的边界；为什么 Godot 有 servers/ 这一层。' }
     ]
   },
