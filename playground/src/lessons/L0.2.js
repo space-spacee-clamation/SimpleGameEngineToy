@@ -47,77 +47,61 @@ platform    系统移植层 + drivers 图形 API 封装（最底层）</pre>
       title: '实验：分层微缩引擎可视化',
       height: 480,
       code: `// ============ 分层微缩引擎可视化 ============
-// 左：main → scene → servers → core 四层横条（自上而下）
-// 右：platform / drivers 竖条
-// 空格切换：分层模式（令牌逐层下行）⇄ 面条模式（令牌乱窜）
+// 左：main → scene → servers → core 四层横条（自上而下）；右：platform / drivers 竖条
+// 空格切换：分层模式（令牌逐层下行）⇄ 面条模式（令牌乱窜），看依赖铁律值多少代价
 
 engine.run({
-  setup: function (state) {                 // 初始化 —— Godot: _ready()
-    state.mode = 0;          // 0=分层模式 1=面条模式
-    state.t = 0;             // 模式内计时
-    state.layer = 0;         // 令牌当前所在层
-    state.radius = 0;        // 「改动爆炸半径」计数
-    state.spark = 0;         // 面条模式：距下次乱跳的倒计时
-    state.trail = [];        // 面条轨迹
+  setup: function (state) {                // 初始化 —— Godot: _ready()
+    state.mode = 0;  state.t = 0;  state.layer = 0;        // 模式 / 计时 / 当前层
+    state.radius = 0;  state.spark = 0;  state.trail = []; // 爆炸半径 / 乱跳倒计时 / 轨迹
     state.pos = { x: 255, y: 93 };
-    state.layers = [         // 目录名 / 中文身份 / 该层典型调用
+    state.layers = [                       // 目录名 / 中文身份 / 该层典型调用
       { name: 'main',    zh: '主循环层', call: 'Main::iteration()' },
       { name: 'scene',   zh: '场景层',   call: 'process(delta) · _ready()' },
       { name: 'servers', zh: '服务层',   call: '绘制命令 · 物理步 · 音频' },
       { name: 'core',    zh: '基础层',   call: '数学与容器 · 内存 · IO' }
     ];
   },
-  update: function (state, dt, input) {     // —— Godot: _process(delta)
-    if (input.pressed('Space')) {           // 空格边沿触发：切换模式
-      state.mode = 1 - state.mode;
-      state.t = 0; state.trail = [];
+  update: function (state, dt, input) {    // —— Godot: _process(delta)
+    if (input.pressed('Space')) {          // 空格边沿触发：切换模式
+      state.mode = 1 - state.mode; state.t = 0; state.trail = [];
       if (state.mode === 1) state.radius = 0;
     }
     state.t += dt;
     if (state.mode === 0) {
       // 令牌每 0.4 秒下行一层，到 core 后回 main —— 一帧的缩影
       state.layer = Math.floor(state.t / 0.4) % state.layers.length;
-      var r = boxRect(state.layer);
-      state.pos = { x: 255, y: r.y + r.h / 2 };
-    } else {
-      // 面条模式：随机挑个盒子乱跳，scene 也能一把抓住 drivers
+      var r = boxRect(state.layer); state.pos = { x: 255, y: r.y + r.h / 2 };
+    } else {                               // 面条模式：scene 也能一把抓住 drivers
       state.spark -= dt;
       if (state.spark <= 0) {
         state.spark = 0.22;
-        var boxes = [0, 1, 2, 3, 10, 11];   // 10=platform 11=drivers
+        var boxes = [0, 1, 2, 3, 10, 11];  // 10=platform 11=drivers
         var b = boxRect(boxes[Math.floor(Math.random() * boxes.length)]);
         var c = { x: b.x + b.w / 2, y: b.y + b.h / 2 };
-        if (state.trail.length > 0) {
+        if (state.trail.length > 0) {      // 乱线：控制点随机偏移，像失控的依赖
           var dx = c.x - state.pos.x, dy = c.y - state.pos.y;
-          var len = Math.sqrt(dx * dx + dy * dy) || 1;
-          var off = (Math.random() - 0.5) * 160;   // 随机弯一点，像失控依赖
+          var len = Math.sqrt(dx * dx + dy * dy) || 1, off = (Math.random() - 0.5) * 160;
           state.trail.push({ ax: state.pos.x, ay: state.pos.y, bx: c.x, by: c.y,
-            cx: (state.pos.x + c.x) / 2 - dy / len * off,
-            cy: (state.pos.y + c.y) / 2 + dx / len * off, life: 1 });
-          state.radius++;                     // 一条乱线 = 一次跨层乱改
+            cx: (state.pos.x + c.x) / 2 - dy / len * off, cy: (state.pos.y + c.y) / 2 + dx / len * off, life: 1 });
+          state.radius++;                  // 一条乱线 = 一次跨层乱改
         }
         state.pos = c;
       }
     }
-    for (var i = state.trail.length - 1; i >= 0; i--) {   // 轨迹淡出
-      state.trail[i].life -= dt * 0.55;
-      if (state.trail[i].life <= 0) state.trail.splice(i, 1);
+    for (var i = state.trail.length - 1; i >= 0; i--) {    // 轨迹淡出
+      state.trail[i].life -= dt * 0.55; if (state.trail[i].life <= 0) state.trail.splice(i, 1);
     }
   },
-  draw: function (state, ctx) {             // —— Godot: _draw()
-    ctx.fillStyle = '#0b0f17';
-    ctx.fillRect(0, 0, engine.W, engine.H);
-    ctx.font = 'bold 15px monospace';
-    ctx.textAlign = 'left';
-    ctx.fillStyle = '#cfe3ff';
+  draw: function (state, ctx) {            // —— Godot: _draw()
+    ctx.fillStyle = '#0b0f17'; ctx.fillRect(0, 0, engine.W, engine.H);
+    ctx.font = 'bold 15px monospace'; ctx.textAlign = 'left'; ctx.fillStyle = '#cfe3ff';
     ctx.fillText(state.mode === 0 ? '分层模式：一帧沿依赖链下行' : '面条模式：依赖乱成一锅粥', 30, 34);
-    ctx.textAlign = 'right';                // 右上角：爆炸半径读数
+    ctx.textAlign = 'right';               // 右上角：爆炸半径读数
     if (state.mode === 0) {
-      ctx.fillStyle = '#9be7a0';
-      ctx.fillText('改动爆炸半径：可控（只向下一层传播）', engine.W - 30, 34);
+      ctx.fillStyle = '#9be7a0'; ctx.fillText('改动爆炸半径：可控（只向下一层传播）', engine.W - 30, 34);
     } else {
-      ctx.fillStyle = '#ff7a7a';
-      ctx.fillText('改动爆炸半径：' + state.radius + ' 处，还在涨 ↑', engine.W - 30, 34);
+      ctx.fillStyle = '#ff7a7a'; ctx.fillText('改动爆炸半径：' + state.radius + ' 处，还在涨 ↑', engine.W - 30, 34);
     }
     drawBar(ctx, boxRect(10), 'platform', '系统移植层', false, true);
     drawBar(ctx, boxRect(11), 'drivers', '图形 API 封装', false, true);
@@ -125,51 +109,33 @@ engine.run({
       var L = state.layers[i], r = boxRect(i);
       var lit = (state.mode === 0 && i === state.layer);
       drawBar(ctx, r, L.name, L.zh, lit, false);
-      if (lit) {                            // 亮层：显示该层典型调用
-        ctx.fillStyle = '#9be7a0';
-        ctx.font = '13px monospace';
-        ctx.textAlign = 'right';
+      if (lit) {                           // 亮层：显示该层典型调用
+        ctx.fillStyle = '#9be7a0'; ctx.font = '13px monospace'; ctx.textAlign = 'right';
         ctx.fillText('调用 → ' + L.call, r.x + r.w - 12, r.y + 35);
       }
     }
-    if (state.mode === 0) {                 // 层间下行箭头：只准向下
-      ctx.fillStyle = '#4a7ab5';
-      ctx.strokeStyle = '#4a7ab5';
+    ctx.font = '13px monospace';
+    if (state.mode === 0) {                // 层间下行箭头：只准向下
+      ctx.strokeStyle = ctx.fillStyle = '#4a7ab5';
       for (var g = 0; g < 3; g++) {
         var gy = 64 + g * 82 + 58;
-        ctx.beginPath();
-        ctx.moveTo(255, gy + 2);
-        ctx.lineTo(255, gy + 16);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(255, gy + 23);
-        ctx.lineTo(250, gy + 14);
-        ctx.lineTo(260, gy + 14);
-        ctx.fill();
+        ctx.beginPath(); ctx.moveTo(255, gy + 2); ctx.lineTo(255, gy + 16); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(255, gy + 23); ctx.lineTo(250, gy + 14); ctx.lineTo(260, gy + 14); ctx.fill();
       }
-    } else {
-      for (var k = 0; k < state.trail.length; k++) {    // 乱线轨迹
+    } else {                               // 乱线轨迹（生命值当透明度）
+      ctx.lineWidth = 2;
+      for (var k = 0; k < state.trail.length; k++) {
         var s = state.trail[k];
         ctx.strokeStyle = 'rgba(255, 110, 110, ' + s.life.toFixed(2) + ')';
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(s.ax, s.ay);
-        ctx.quadraticCurveTo(s.cx, s.cy, s.bx, s.by);
-        ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(s.ax, s.ay); ctx.quadraticCurveTo(s.cx, s.cy, s.bx, s.by); ctx.stroke();
       }
     }
-    ctx.beginPath();                        // 令牌：发光小圆点
-    ctx.arc(state.pos.x, state.pos.y, 9, 0, Math.PI * 2);
-    ctx.fillStyle = state.mode === 0 ? '#7ec8ff' : '#ff5c5c';
-    ctx.fill();
-    ctx.beginPath();
-    ctx.arc(state.pos.x, state.pos.y, 16, 0, Math.PI * 2);
+    ctx.beginPath(); ctx.arc(state.pos.x, state.pos.y, 9, 0, Math.PI * 2);    // 令牌：发光小圆点
+    ctx.fillStyle = state.mode === 0 ? '#7ec8ff' : '#ff5c5c'; ctx.fill();
+    ctx.beginPath(); ctx.arc(state.pos.x, state.pos.y, 16, 0, Math.PI * 2);
     ctx.strokeStyle = state.mode === 0 ? 'rgba(126,200,255,0.35)' : 'rgba(255,92,92,0.35)';
-    ctx.lineWidth = 2;
-    ctx.stroke();
-    ctx.fillStyle = '#7d93b3';
-    ctx.font = '13px monospace';
-    ctx.textAlign = 'left';
+    ctx.lineWidth = 2; ctx.stroke();
+    ctx.fillStyle = '#7d93b3'; ctx.textAlign = 'left';
     ctx.fillText('空格：切换模式 · 依赖铁律 main → scene → servers → core → platform/drivers', 30, engine.H - 16);
   }
 });
@@ -177,8 +143,7 @@ engine.run({
 // 盒子几何：0~3 = 左侧四层横条；10/11 = 右侧竖条两段
 function boxRect(id) {
   if (id <= 3) return { x: 30, y: 64 + id * 82, w: 450, h: 58 };
-  if (id === 10) return { x: 560, y: 64, w: 130, h: 140 };
-  return { x: 560, y: 214, w: 130, h: 140 };
+  return (id === 10) ? { x: 560, y: 64, w: 130, h: 140 } : { x: 560, y: 214, w: 130, h: 140 };
 }
 
 // 画一个层条；vertical=true 时按竖条排版
@@ -186,8 +151,7 @@ function drawBar(ctx, r, name, zh, lit, vertical) {
   ctx.fillStyle = lit ? '#28496b' : (vertical ? '#1d2233' : '#151b29');
   ctx.fillRect(r.x, r.y, r.w, r.h);
   ctx.strokeStyle = lit ? '#7ec8ff' : (vertical ? '#5d4d86' : '#33415e');
-  ctx.lineWidth = lit ? 2.5 : 1.5;
-  ctx.strokeRect(r.x, r.y, r.w, r.h);
+  ctx.lineWidth = lit ? 2.5 : 1.5; ctx.strokeRect(r.x, r.y, r.w, r.h);
   ctx.textAlign = vertical ? 'center' : 'left';
   var tx = vertical ? r.x + r.w / 2 : r.x + 14;
   ctx.fillStyle = lit ? '#dff1ff' : '#8fa3c0';
@@ -195,11 +159,7 @@ function drawBar(ctx, r, name, zh, lit, vertical) {
   ctx.fillText(name, tx, r.y + (vertical ? 62 : 24));
   ctx.font = '12px monospace';
   ctx.fillStyle = lit ? '#a8d4f0' : '#67789a';
-  if (vertical) {
-    ctx.fillText(zh, tx, r.y + 84);
-  } else {
-    ctx.fillText(zh, r.x + 96, r.y + 24);
-  }
+  if (vertical) { ctx.fillText(zh, tx, r.y + 84); } else { ctx.fillText(zh, r.x + 130, r.y + 24); }
 }
 `
     },

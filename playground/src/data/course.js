@@ -18,7 +18,7 @@ export const STAGES = [
     lessons: [
       { id: 'L1.1', title: '时间步长实验台：固定步长与螺旋死亡', est: '90 分钟', status: 'ready',
         brief: '可变 dt 为什么不可靠；固定步长 + 累积器；亲手制造一次 spiral of death。' },
-      { id: 'L1.2', title: '走读 Godot 的一帧：Main::iteration', est: '2 小时', status: 'planned',
+      { id: 'L1.2', title: '走读 Godot 的一帧：Main::iteration', est: '2 小时', status: 'ready',
         brief: '从 OS 消息循环到你的 _process，一帧的完整调用链。' }
     ]
   },
