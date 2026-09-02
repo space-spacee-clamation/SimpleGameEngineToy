@@ -4,6 +4,7 @@ import L0_2 from './L0.2.js'
 import L1_1 from './L1.1.js'
 import L1_2 from './L1.2.js'
 import L2_1 from './L2.1.js'
+import L2_2 from './L2.2.js'
 import L4_2 from './L4.2.js'
 import L5_1 from './L5.1.js'
 import L5_2 from './L5.2.js'
@@ -14,6 +15,7 @@ export const LESSONS = {
   'L1.1': L1_1,
   'L1.2': L1_2,
   'L2.1': L2_1,
+  'L2.2': L2_2,
   'L4.2': L4_2,
   'L5.1': L5_1,
   'L5.2': L5_2

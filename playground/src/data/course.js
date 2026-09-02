@@ -28,7 +28,7 @@ export const STAGES = [
     lessons: [
       { id: 'L2.1', title: '场景树 vs ECS：两种世界观', est: '2.5 小时', status: 'ready',
         brief: '组合优于继承如何落地；数据导向为什么缓存友好。' },
-      { id: 'L2.2', title: 'Godot 对象模型：Object / Variant / 信号', est: '2 小时', status: 'planned',
+      { id: 'L2.2', title: 'Godot 对象模型：Object / Variant / 信号', est: '2 小时', status: 'ready',
         brief: 'C++ 类如何长出反射、脚本与序列化能力。' },
       { id: 'L2.3', title: '引擎内存管理：引用计数、Arena 与 COW', est: '2 小时', status: 'planned',
         brief: '引擎为什么慎用通用堆；四种策略各自的坑。' },
