@@ -1,0 +1,12 @@
+# 本地专用提交脚本（不入库）
+/push.bat
+
+# 依赖与构建产物（start.py 缺失时会自动执行 pnpm build）
+node_modules/
+.pnpm-store/
+playground/dist/
+
+# 系统杂项
+Thumbs.db
+.DS_Store
+*.log
