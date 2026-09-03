@@ -10,7 +10,7 @@
 - **每课一个写完就能跑的实践板块**（没有课后作业，一切练习课内即时完成）
 - 三种实验组件：**CodeLab**（JS 实验台）、**ShaderLab**（HLSL 实时转译 WebGL）、**PhysicsLab**（2D 刚体沙盒）
 - 每课附带 **Godot 真实源码走读清单**（路径都经过质检脚本核验）
-- 课程范围：主循环 / 对象系统与 ECS / 数学与四元数 / 渲染管线与 Shader / 物理 / 资源 / 输入·动画·音频 / 多线程·网络·编辑器 / 毕业项目
+- 课程范围：主循环 / 对象系统与 ECS / 数学与四元数 / 渲染管线与 Shader / 物理 / 资源 / 输入·动画·音频 / 多线程·网络·编辑器 / 毕业项目，另有进阶深水区专题（碰撞策略 / 液体渲染 / 可破坏场景 / ECS 手写 / 游戏手感 / 程序化生成 / PBR / IK 等）
 
 ## 快速开始
 
@@ -34,29 +34,32 @@ python start.py       # 浏览器自动打开 http://127.0.0.1:5217/
 |---|---|
 | `start.py` / `start.bat` | 一键启动：本地服务 + 自动打开浏览器 |
 | `COURSE_PLAN.md` | 课程规划主文档（大纲 / 约定 / 给 AI 会话的工作流） |
-| `ADVANCED_PLAN.md` | 进阶专题规划（碰撞策略 / 液体渲染 / 可破坏场景 / ECS 等深水区大纲） |
+| `ADVANCED_PLAN.md` | 进阶专题规划（12 方向 57 课：碰撞策略 / 液体渲染 / 可破坏场景 / ECS / 手感 / 程序化生成等，已上线 16 课） |
 | `playground/` | 学习平台（Vue 3 + Vite + CodeMirror 5） |
 | `playground/src/lessons/` | 课程数据模块（每课一个 JS 文件） |
 | `playground/src/lib/hlsl2glsl.js` | HLSL → GLSL 实时转译器 |
 | `playground/tools/check-lesson.mjs` | 课程质检脚本 |
 | `godot/` | **git 子模块**：Godot 引擎源码（浅克隆主干） |
 
-## 课程总览（9 阶段 · 26 课）
+## 课程总览（主线 9 阶段 26 课 ✅ 全部上线 + 进阶专题 P10）
 
 | 阶段 | 主题 | 状态 |
 |---|---|---|
-| P0 | 引擎全景（造一个引擎 ✅ / 解剖图 ✅） | ✅ |
-| P1 | 时间与主循环（固定步长 ✅ / Godot 一帧 ✅） | ✅ |
-| P2 | 对象系统：场景树 vs ECS ✅ / Variant 与信号 ✅ / 内存 / 脚本绑定 | 🟡 |
-| P3 | 数学与空间（四元数 / 数学库设计） | ⏳ |
-| P4 | 渲染（管线 / HLSL Shader 实验室 / 渲染器架构 / 后处理） | 🟡 L4.2 ✅ |
-| P5 | 物理（空间网格 / 刚体求解 ✅ / PhysicsServer） | 🟡 |
-| P6 | 资源系统 | ⏳ |
-| P7 | 输入 UI / 动画 / 音频 | ⏳ |
-| P8 | Job System / 网络同步 / 编辑器架构 | ⏳ |
-| P9 | 毕业实战 | ⏳ |
+| P0 | 引擎全景 | ✅ |
+| P1 | 时间与主循环 | ✅ |
+| P2 | 对象系统与架构模式（场景树 vs ECS / Variant / 内存 / 脚本绑定） | ✅ |
+| P3 | 数学与空间（四元数 / 数学库设计） | ✅ |
+| P4 | 渲染系统（GPU 管线 / HLSL Shader / 渲染器架构 / 后处理） | ✅ |
+| P5 | 物理系统（空间网格 / 刚体求解 / PhysicsServer 与 Jolt） | ✅ |
+| P6 | 资源系统（.tres / pck / 热重载） | ✅ |
+| P7 | 玩法支撑（输入 UI / 动画 / 音频） | ✅ |
+| P8 | 引擎级进阶（Job System / 网络同步 / 编辑器架构） | ✅ |
+| P9 | 毕业实战（阅读方法论 / 毕业项目） | ✅ |
+| P10 | 进阶专题（CCD / 求解器 / SPH 流体 / metaball / 波动水面 / 像素与预分片破坏 / mini-ECS） | 🟡 已上线 16/57 |
 
 进度以平台内打卡（localStorage）为准；✅ = 平台上已有可上课的实践内容。
+
+进阶深水区按 12 方向规划共 57 课（碰撞物理 / 渲染 / ECS / 大世界 / 网络确定性 / 玩法算法 / 角色动画 / 手感反馈 / 程序化生成 / 图形管线 / 音频 DSP / 引擎系统补遗），完整大纲与已上线清单见 `ADVANCED_PLAN.md`。
 
 ## 开发备忘
 
@@ -64,7 +67,7 @@ python start.py       # 浏览器自动打开 http://127.0.0.1:5217/
 cd playground
 pnpm dev                        # 开发模式（热更新）
 pnpm build                      # 产出 dist/
-node tools/check-lesson.mjs L0.1  # 课程质检（默认代码干跑 + 源码路径核验）
+node tools/check-lesson.mjs L0.1  # 课程质检（默认代码干跑 + 源码路径核验），进阶课同理：node tools/check-lesson.mjs A1
 ```
 
 - Shader 一律写 **HLSL**，由 `hlsl2glsl.js` 实时转译给 WebGL（与 DirectX / Godot shader 语法同源）
