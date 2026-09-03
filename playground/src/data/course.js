@@ -30,9 +30,9 @@ export const STAGES = [
         brief: '组合优于继承如何落地；数据导向为什么缓存友好。' },
       { id: 'L2.2', title: 'Godot 对象模型：Object / Variant / 信号', est: '2 小时', status: 'ready',
         brief: 'C++ 类如何长出反射、脚本与序列化能力。' },
-      { id: 'L2.3', title: '引擎内存管理：引用计数、Arena 与 COW', est: '2 小时', status: 'planned',
+      { id: 'L2.3', title: '引擎内存管理：引用计数、Arena 与 COW', est: '2 小时', status: 'ready',
         brief: '引擎为什么慎用通用堆；四种策略各自的坑。' },
-      { id: 'L2.4', title: '脚本如何驱动 C++：GDScript VM 与绑定层', est: '2.5 小时', status: 'planned',
+      { id: 'L2.4', title: '脚本如何驱动 C++：GDScript VM 与绑定层', est: '2.5 小时', status: 'ready',
         brief: '一次 GDScript 调用穿透到 C++ 的完整路径。' }
     ]
   },
@@ -40,9 +40,9 @@ export const STAGES = [
     id: 'P3', name: '阶段 3 · 数学与空间', color: '#6ee7b7',
     goal: '变换、四元数与引擎数学库的设计取舍。',
     lessons: [
-      { id: 'L3.1', title: '变换与四元数：万向节死锁可视化', est: '2 小时', status: 'planned',
+      { id: 'L3.1', title: '变换与四元数：万向节死锁可视化', est: '2 小时', status: 'ready',
         brief: '为什么旋转不用欧拉角；slerp 为什么安全。' },
-      { id: 'L3.2', title: '引擎数学库设计：SIMD、缓存与布局', est: '1.5 小时', status: 'planned',
+      { id: 'L3.2', title: '引擎数学库设计：SIMD、缓存与布局', est: '1.5 小时', status: 'ready',
         brief: '引擎数学库和教科书数学差在哪。' }
     ]
   },
@@ -110,7 +110,7 @@ export const STAGES = [
     lessons: [
       { id: 'L9.1', title: '大型 C++ 项目阅读方法论', est: '2 小时', status: 'planned',
         brief: '垂直走读 vs 水平走读；三条 Godot 走读线路。' },
-      { id: 'L9.2', title: '毕业项目：给 Godot 加功能 / mini-engine / 深度报告', est: '自定', status: 'planned',
+      { id: 'L9.2', title: '毕业项目：给 Godot 加功能 / mini-engine / 深度报告', est: '自定', status: 'ready',
         brief: '可展示、可讲述、可被追问。' }
     ]
   }
