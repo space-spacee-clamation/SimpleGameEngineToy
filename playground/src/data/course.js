@@ -169,7 +169,19 @@ export const STAGES = [
       { id: 'D3', title: '无限世界流式加载：cell 与内存预算', est: '2 小时', status: 'ready',
         brief: '同步硬加载的尖峰 vs 异步预算的平滑；LRU 卸载——需求与供给的帧时间战争。' },
       { id: 'D4', title: '粒子系统架构：CPU vs GPU 粒子', est: '2 小时', status: 'ready',
-        brief: 'emitter×affector×pool 三段式；万级 SoA 粒子池与模拟/绘制成本分离。' }
+        brief: 'emitter×affector×pool 三段式；万级 SoA 粒子池与模拟/绘制成本分离。' },
+      { id: 'D5', title: '植被与 instancing：一棵草到一万棵草', est: '2 小时', status: 'ready',
+        brief: '逐个画 vs 批量画的帧耗时实测；数据存一份、位置走属性流。' },
+      { id: 'D6', title: '天空与大气一瞥：为什么天是渐变的', est: '2 小时', status: 'ready',
+        brief: '昼夜渐变、日落橙、太阳盘与星夜——大气散射的加法近似配方。' },
+      { id: 'E1', title: '定点数与确定性：帧同步的地基', est: '2 小时', status: 'ready',
+        brief: 'float vs 定点对照跑万步，哈希对账分叉现场——确定性是帧同步的命。' },
+      { id: 'E2', title: '增量压缩与快照：带宽经济学', est: '2 小时', status: 'ready',
+        brief: '文本全量/定长量化/增量位打包三条曲线同屏对账，MTU 预算下数着比特过日子。' },
+      { id: 'E3', title: '兴趣管理 AOI：只发看得见的', est: '2 小时', status: 'ready',
+        brief: '200 实体全发 16KB/s、圈定兴趣集只剩零头——大世界的网络裁剪。' },
+      { id: 'E4', title: '录制与回放：反外挂的引擎地基', est: '2 小时', status: 'ready',
+        brief: '只录输入重跑全世界；改一帧看哈希链崩盘，首个分叉帧当场点名。' }
     ]
   }
 ]

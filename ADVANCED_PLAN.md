@@ -70,17 +70,17 @@
 | D2 | 高度场地形 II：LOD 与裙边 ✅ | chunk LOD、视距分级；接缝裂缝为什么必须用裙边补 | CodeLab：LOD 分级沙盘（放大接缝看裂缝消失） | render_forward_clustered/mesh_storage 的 lod 段；裙边如实标注为外部经典 |
 | D3 | 无限世界流式加载：cell 与内存预算 ✅ | 坐标系怎么划 cell、异步队列优先级、预算爆掉是什么体验 | CodeLab：流式加载模拟（预算条 + 加载队列 + 卡顿现场） | core/io/resource_loader.cpp（线程加载） |
 | D4 | 粒子系统架构：CPU vs GPU 粒子 ✅ | emitter→affector 管线；GPU 粒子把「模拟」整体搬进显存 | CodeLab：万级 CPU 粒子池 + affector 参数曲线 | particles_storage.cpp + particles.glsl |
-| D5 | 植被与 instancing：一棵草到一万棵草 | instancing 思想：数据只存一份、位置走属性流 | CodeLab：逐个画 vs 批量画同一万棵草的帧耗时实测 | servers/rendering/（multi_mesh / instancing） |
-| D6 | 天空与大气一瞥：为什么天是渐变的 | 天空盒 → 大气散射近似；预积分与实时的取舍 | ShaderLab：昼夜渐变天空（u_time 驱动太阳高度） | servers/rendering/（sky 相关文件） |
+| D5 | 植被与 instancing：一棵草到一万棵草 ✅ | instancing 思想：数据只存一份、位置走属性流 | CodeLab：逐个画 vs 批量画同一万棵草的帧耗时实测 | mesh_storage 的 multimesh 段（已核验） |
+| D6 | 天空与大气一瞥：为什么天是渐变的 ✅ | 天空盒 → 大气散射近似；预积分与实时的取舍 | ShaderLab：昼夜渐变天空（u_time 驱动太阳高度） | environment/sky.cpp + sky.glsl + fog.cpp（已核验） |
 
 ## 6. E · 网络与确定性（5 课）
 
 | 课 | 标题 | 一句话 | 实验（可跑） | 走读候选（制作时核验） |
 |---|---|---|---|---|
-| E1 | 定点数与确定性：帧同步的地基 | 浮点误差如何滚成雪崩；定点运算的加减乘除与平方根 | CodeLab：float vs 定点对照跑万帧，哈希对账分叉现场 | （外部经典 + 回扣主线 L8.2） |
-| E2 | 增量压缩与快照：带宽经济学 | delta、位打包、量化降精度；MTU 预算下的取舍 | CodeLab：位打包演示（KB/s 实时统计） | modules/multiplayer/（delta 通道） |
-| E3 | 兴趣管理 AOI：只发看得见的 | grid/AOI/优先级：大世界的网络裁剪 | CodeLab：AOI 开关下的包量与卡顿对比 | modules/multiplayer/ |
-| E4 | 录制与回放：反外挂的引擎地基 | 只录输入就能重跑全世界——确定性回放、哈希对账、定位首个分叉帧 | CodeLab：输入录制回放器（改一步看全盘崩） | （外部经典；回扣 E1） |
+| E1 | 定点数与确定性：帧同步的地基 ✅ | 浮点误差如何滚成雪崩；定点运算的加减乘除与平方根 | CodeLab：float vs 定点对照跑万帧，哈希对账分叉现场 | math_funcs/main/input（已核验，回扣 L8.2） |
+| E2 | 增量压缩与快照：带宽经济学 ✅ | delta、位打包、量化降精度；MTU 预算下的取舍 | CodeLab：位打包演示（KB/s 实时统计） | modules/multiplayer/（已核验三锚点） |
+| E3 | 兴趣管理 AOI：只发看得见的 ✅ | grid/AOI/优先级：大世界的网络裁剪 | CodeLab：AOI 开关下的包量与卡顿对比 | modules/multiplayer/（spawner/cache/replication，已核验） |
+| E4 | 录制与回放：反外挂的引擎地基 ✅ | 只录输入就能重跑全世界——确定性回放、哈希对账、定位首个分叉帧 | CodeLab：输入录制回放器（改一步看全盘崩） | input/main/math_funcs（已核验，回扣 E1） |
 | E5 | 时间同步与时钟漂移 | 两台机器的时间对不上：ping 估延迟、偏移估计、平滑校正 | CodeLab：双时钟漂移与渐进对齐演示 | modules/multiplayer/（sync 时间戳） |
 
 ## 7. F · 玩法算法与工具链（6 课）
@@ -165,6 +165,9 @@
 
 **第四批（已完成 ✅）**：C4 → D1 → D2 → D3 → D4
 （C4 给 ECS 系列画句号；D1-D4 开通大世界与粒子方向）
+
+**第五批（已完成 ✅）**：D5 → D6 → E1 → E2 → E3 → E4
+（D5/D6 收完大世界与粒子；E1-E4 开通网络与确定性，E5 时间同步顺延下一批）
 （手感专题性价比最高；I2/J1 是各自方向的门面；A2/A4 补完碰撞系；B6 补阴影盲区）
 
 制作流程与主线一致：见 COURSE_PLAN.md §4；每课产出 lessons/XX.Y.js → node tools/check-lesson.mjs 通过 → 注册 → build。
