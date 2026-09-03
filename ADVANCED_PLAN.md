@@ -60,16 +60,16 @@
 | C1 | ECS 世界观：archetype vs sparse set vs Node ✅ | 三种存储的内存布局与遍历命运 | CodeLab：三种存储遍历成本沙盘（呼应 L3.2） | core/object/object.h、scene/main/node.cpp（对照） |
 | C2 ⭐ | 手写 mini-ECS I：Query 与 System ✅ | 200 行 JS 造 archetype 存储 + 查询 | CodeLab：mini-ECS 骨架现场写 | （外部 Bevy/EnTT 概念对照，无源码依赖） |
 | C3 | 手写 mini-ECS II：调度、脏标记与事件 ✅ | system 依赖图、change detection、deferred 事件 | CodeLab：调度图 + 脏标记演示 | servers 的 RID 世界（无 Node 的数据导向） |
-| C4 | ECS 落地：渲染/物理/网络怎么吃 ECS | 同一游戏两套实现的帧耗时与快照对比 | CodeLab：Node 树 vs mini-ECS 的实测对比 | scene/main/scene_tree.cpp（对照） |
+| C4 | ECS 落地：渲染/物理/网络怎么吃 ECS ✅ | 同一游戏两套实现的帧耗时与快照对比 | CodeLab：Node 树 vs mini-ECS 的实测对比 | scene/main/scene_tree.cpp（对照） |
 
 ## 5. D · 大世界与粒子（6 课）
 
 | 课 | 标题 | 一句话 | 实验（可跑） | 走读候选（制作时核验） |
 |---|---|---|---|---|
-| D1 | 高度场地形 I：从噪声到法线 | heightmap 管线全景：多倍频噪声、法线与坡度、贴图按坡度分层 | CodeLab：2D 高度图生成器（倍频/持续度/阈值实时调） | （外部经典为主，制作时找 Godot 地形锚点） |
-| D2 | 高度场地形 II：LOD 与裙边 | chunk LOD、视距分级；接缝裂缝为什么必须用裙边补 | CodeLab：LOD 分级沙盘（放大接缝看裂缝消失） | servers/ 下地形/网格相关文件 |
-| D3 | 无限世界流式加载：cell 与内存预算 | 坐标系怎么划 cell、异步队列优先级、预算爆掉是什么体验 | CodeLab：流式加载模拟（预算条 + 加载队列 + 卡顿现场） | core/io/resource_loader.cpp（线程加载） |
-| D4 | 粒子系统架构：CPU vs GPU 粒子 | emitter→affector 管线；GPU 粒子把「模拟」整体搬进显存 | CodeLab：万级 CPU 粒子池 + affector 参数曲线 | servers/rendering/.../particles_storage.cpp |
+| D1 | 高度场地形 I：从噪声到法线 ✅ | heightmap 管线全景：多倍频噪声、法线与坡度、贴图按坡度分层 | CodeLab：2D 高度图生成器（倍频/持续度/阈值实时调） | fastnoise_lite + height_map_shape_3d（均已核验） |
+| D2 | 高度场地形 II：LOD 与裙边 ✅ | chunk LOD、视距分级；接缝裂缝为什么必须用裙边补 | CodeLab：LOD 分级沙盘（放大接缝看裂缝消失） | render_forward_clustered/mesh_storage 的 lod 段；裙边如实标注为外部经典 |
+| D3 | 无限世界流式加载：cell 与内存预算 ✅ | 坐标系怎么划 cell、异步队列优先级、预算爆掉是什么体验 | CodeLab：流式加载模拟（预算条 + 加载队列 + 卡顿现场） | core/io/resource_loader.cpp（线程加载） |
+| D4 | 粒子系统架构：CPU vs GPU 粒子 ✅ | emitter→affector 管线；GPU 粒子把「模拟」整体搬进显存 | CodeLab：万级 CPU 粒子池 + affector 参数曲线 | particles_storage.cpp + particles.glsl |
 | D5 | 植被与 instancing：一棵草到一万棵草 | instancing 思想：数据只存一份、位置走属性流 | CodeLab：逐个画 vs 批量画同一万棵草的帧耗时实测 | servers/rendering/（multi_mesh / instancing） |
 | D6 | 天空与大气一瞥：为什么天是渐变的 | 天空盒 → 大气散射近似；预积分与实时的取舍 | ShaderLab：昼夜渐变天空（u_time 驱动太阳高度） | servers/rendering/（sky 相关文件） |
 
@@ -162,6 +162,9 @@
 
 **第三批（已完成 ✅）**：A5 → B7 → B8 → C1 → C3
 （B7/B8 收尾渲染深水区；A5 补完碰撞系；C1+C3 收完 ECS 三部曲）
+
+**第四批（已完成 ✅）**：C4 → D1 → D2 → D3 → D4
+（C4 给 ECS 系列画句号；D1-D4 开通大世界与粒子方向）
 （手感专题性价比最高；I2/J1 是各自方向的门面；A2/A4 补完碰撞系；B6 补阴影盲区）
 
 制作流程与主线一致：见 COURSE_PLAN.md §4；每课产出 lessons/XX.Y.js → node tools/check-lesson.mjs 通过 → 注册 → build。

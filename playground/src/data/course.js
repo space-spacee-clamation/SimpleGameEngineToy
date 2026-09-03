@@ -159,7 +159,17 @@ export const STAGES = [
       { id: 'C1', title: 'ECS 世界观：archetype vs sparse set vs Node', est: '2 小时', status: 'ready',
         brief: '三种存储的内存布局与遍历命运；查询便宜是布局送的，不是代码送的。' },
       { id: 'C3', title: '手写 mini-ECS II：调度、脏标记与事件', est: '2.5 小时', status: 'ready',
-        brief: '拓扑调度、版本号脏标记、帧末事件派发——给 C2 的骨架装上管家婆三层。' }
+        brief: '拓扑调度、版本号脏标记、帧末事件派发——给 C2 的骨架装上管家婆三层。' },
+      { id: 'C4', title: 'ECS 落地：渲染/物理/网络怎么吃 ECS', est: '2.5 小时', status: 'ready',
+        brief: '同一款小游戏双架构各写一遍：帧耗时、快照体积、选型决策表——C 系列收官。' },
+      { id: 'D1', title: '高度场地形 I：从噪声到法线', est: '2.5 小时', status: 'ready',
+        brief: '多倍频噪声、中央差分法线、坡度分层——heightmap 管线全景三联视图。' },
+      { id: 'D2', title: '高度场地形 II：LOD 与裙边', est: '2 小时', status: 'ready',
+        brief: 'chunk 分级、边界 T-junction 裂缝、裙边与迟滞——顶点经济学沙盘。' },
+      { id: 'D3', title: '无限世界流式加载：cell 与内存预算', est: '2 小时', status: 'ready',
+        brief: '同步硬加载的尖峰 vs 异步预算的平滑；LRU 卸载——需求与供给的帧时间战争。' },
+      { id: 'D4', title: '粒子系统架构：CPU vs GPU 粒子', est: '2 小时', status: 'ready',
+        brief: 'emitter×affector×pool 三段式；万级 SoA 粒子池与模拟/绘制成本分离。' }
     ]
   }
 ]

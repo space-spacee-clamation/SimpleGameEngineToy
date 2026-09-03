@@ -46,6 +46,11 @@ import B7 from './B7.js'
 import B8 from './B8.js'
 import C1 from './C1.js'
 import C3 from './C3.js'
+import C4 from './C4.js'
+import D1 from './D1.js'
+import D2 from './D2.js'
+import D3 from './D3.js'
+import D4 from './D4.js'
 
 export const LESSONS = {
   'L0.1': L0_1,
@@ -94,5 +99,10 @@ export const LESSONS = {
   'B7': B7,
   'B8': B8,
   'C1': C1,
-  'C3': C3
+  'C3': C3,
+  'C4': C4,
+  'D1': D1,
+  'D2': D2,
+  'D3': D3,
+  'D4': D4
 }
