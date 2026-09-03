@@ -34,6 +34,7 @@ python start.py       # 浏览器自动打开 http://127.0.0.1:5217/
 |---|---|
 | `start.py` / `start.bat` | 一键启动：本地服务 + 自动打开浏览器 |
 | `COURSE_PLAN.md` | 课程规划主文档（大纲 / 约定 / 给 AI 会话的工作流） |
+| `ADVANCED_PLAN.md` | 进阶专题规划（碰撞策略 / 液体渲染 / 可破坏场景 / ECS 等深水区大纲） |
 | `playground/` | 学习平台（Vue 3 + Vite + CodeMirror 5） |
 | `playground/src/lessons/` | 课程数据模块（每课一个 JS 文件） |
 | `playground/src/lib/hlsl2glsl.js` | HLSL → GLSL 实时转译器 |

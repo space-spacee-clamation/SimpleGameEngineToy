@@ -25,6 +25,14 @@ import L8_3 from './L8.3.js'
 import L4_2 from './L4.2.js'
 import L5_1 from './L5.1.js'
 import L5_2 from './L5.2.js'
+import A1 from './A1.js'
+import B5 from './B5.js'
+import C2 from './C2.js'
+import B1 from './B1.js'
+import B2 from './B2.js'
+import B3 from './B3.js'
+import B4 from './B4.js'
+import A3 from './A3.js'
 
 export const LESSONS = {
   'L0.1': L0_1,
@@ -52,5 +60,13 @@ export const LESSONS = {
   'L8.3': L8_3,
   'L4.2': L4_2,
   'L5.1': L5_1,
-  'L5.2': L5_2
+  'L5.2': L5_2,
+  'A1': A1,
+  'B5': B5,
+  'C2': C2,
+  'B1': B1,
+  'B2': B2,
+  'B3': B3,
+  'B4': B4,
+  'A3': A3
 }

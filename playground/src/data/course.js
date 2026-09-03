@@ -113,6 +113,28 @@ export const STAGES = [
       { id: 'L9.2', title: '毕业项目：给 Godot 加功能 / mini-engine / 深度报告', est: '自定', status: 'ready',
         brief: '可展示、可讲述、可被追问。' }
     ]
+  },
+  {
+    id: 'P10', name: '阶段 10 · 进阶专题', color: '#38bdf8',
+    goal: '毕业后的深水区：一课打穿一个细节（大纲见 ADVANCED_PLAN.md）。',
+    lessons: [
+      { id: 'A1', title: '连续碰撞检测 CCD：子弹为什么能穿过薄墙', est: '2 小时', status: 'ready',
+        brief: '离散检测的时间盲区；子步细分 vs 前瞻接触 vs 扫掠判定的取舍。' },
+      { id: 'A3', title: '求解器进阶：迭代、暖启动与 island', est: '2.5 小时', status: 'ready',
+        brief: 'sequential impulse 全景；为什么塔会抖、会果冻。' },
+      { id: 'B1', title: '液体渲染 I：2D 粒子流体（SPH）', est: '2.5 小时', status: 'ready',
+        brief: '密度、压强、黏性三项力；先造行为再造外观。' },
+      { id: 'B2', title: '液体渲染 II：让粒子看起来像水', est: '2 小时', status: 'ready',
+        brief: 'metaball 密度场挤出、屏幕空间平滑、法线重建。' },
+      { id: 'B3', title: '液体渲染 III：波动方程水面', est: '2 小时', status: 'ready',
+        brief: 'heightfield 波动方程、法线重建、折射反射配色。' },
+      { id: 'B4', title: '可破坏场景 I：像素/体素破坏', est: '2.5 小时', status: 'ready',
+        brief: '破坏 mask、连通域分析、孤岛坠落。' },
+      { id: 'B5', title: '可破坏场景 II：预分片与运行时切割', est: '2 小时', status: 'ready',
+        brief: 'Voronoi 预切、碰撞激活脱落、二次破碎。' },
+      { id: 'C2', title: '手写 mini-ECS I：Query 与 System', est: '2.5 小时', status: 'ready',
+        brief: '200 行落地 archetype 存储、位掩码 Query 与 System。' }
+    ]
   }
 ]
 
