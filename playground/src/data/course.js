@@ -181,7 +181,17 @@ export const STAGES = [
       { id: 'E3', title: '兴趣管理 AOI：只发看得见的', est: '2 小时', status: 'ready',
         brief: '200 实体全发 16KB/s、圈定兴趣集只剩零头——大世界的网络裁剪。' },
       { id: 'E4', title: '录制与回放：反外挂的引擎地基', est: '2 小时', status: 'ready',
-        brief: '只录输入重跑全世界；改一帧看哈希链崩盘，首个分叉帧当场点名。' }
+        brief: '只录输入重跑全世界；改一帧看哈希链崩盘，首个分叉帧当场点名。' },
+      { id: 'E5', title: '时间同步与时钟漂移', est: '2 小时', status: 'ready',
+        brief: 'ping 估偏移的噪声、硬跳与缓调的性格、双时钟重采样——克隆角色的卡顿账。' },
+      { id: 'F1', title: '寻路：A*、JPS 与 navmesh', est: '2.5 小时', status: 'ready',
+        brief: '启发权重旋钮、开放集扩散可视化、string pulling 平滑——网格到 navmesh 的桥。' },
+      { id: 'F2', title: '群体避障：boids、flow field 与 RVO 一瞥', est: '2 小时', status: 'ready',
+        brief: '500 单位三种大脑实时切换：涌现的活感、查表的秩序、几何的礼让。' },
+      { id: 'F3', title: '相机系统：跟随、震屏与遮挡处理', est: '2 小时', status: 'ready',
+        brief: '四种跟随策略 + trauma 震屏——手感是被滤波出来的。' },
+      { id: 'G2', title: '程序化动画与弹簧骨骼', est: '2 小时', status: 'ready',
+        brief: '12 节弹簧链：刚度/阻尼两个旋钮调出千种尾巴，鞭子效应现场甩给你看。' }
     ]
   }
 ]

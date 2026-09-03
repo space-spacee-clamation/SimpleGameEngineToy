@@ -34,7 +34,7 @@ python start.py       # 浏览器自动打开 http://127.0.0.1:5217/
 |---|---|
 | `start.py` / `start.bat` | 一键启动：本地服务 + 自动打开浏览器 |
 | `COURSE_PLAN.md` | 课程规划主文档（大纲 / 约定 / 给 AI 会话的工作流） |
-| `ADVANCED_PLAN.md` | 进阶专题规划（12 方向 57 课：碰撞策略 / 液体渲染 / 可破坏场景 / ECS / 手感 / 程序化生成等，已上线 32 课） |
+| `ADVANCED_PLAN.md` | 进阶专题规划（12 方向 57 课：碰撞策略 / 液体渲染 / 可破坏场景 / ECS / 手感 / 程序化生成等，已上线 37 课） |
 | `playground/` | 学习平台（Vue 3 + Vite + CodeMirror 5） |
 | `playground/src/lessons/` | 课程数据模块（每课一个 JS 文件） |
 | `playground/src/lib/hlsl2glsl.js` | HLSL → GLSL 实时转译器 |
@@ -55,7 +55,7 @@ python start.py       # 浏览器自动打开 http://127.0.0.1:5217/
 | P7 | 玩法支撑（输入 UI / 动画 / 音频） | ✅ |
 | P8 | 引擎级进阶（Job System / 网络同步 / 编辑器架构） | ✅ |
 | P9 | 毕业实战（阅读方法论 / 毕业项目） | ✅ |
-| P10 | 进阶专题（CCD / 求解器 / 软体 PBD / 液体渲染 / 破坏 / 阴影 / 透明排序 / raymarching / mini-ECS 四部曲 / 地形 / 流式加载 / 粒子 / 天空 / AOI / 网络确定性） | 🟡 已上线 32/57 |
+| P10 | 进阶专题（CCD / 求解器 / 软体 PBD / 液体渲染 / 破坏 / 阴影 / 透明排序 / raymarching / mini-ECS 四部曲 / 地形 / 流式加载 / 粒子 / 天空 / 网络确定性 / 寻路 / 群集 / 相机 / 弹簧骨骼） | 🟡 已上线 37/57 |
 
 进度以平台内打卡（localStorage）为准；✅ = 平台上已有可上课的实践内容。
 

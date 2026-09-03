@@ -81,15 +81,15 @@
 | E2 | 增量压缩与快照：带宽经济学 ✅ | delta、位打包、量化降精度；MTU 预算下的取舍 | CodeLab：位打包演示（KB/s 实时统计） | modules/multiplayer/（已核验三锚点） |
 | E3 | 兴趣管理 AOI：只发看得见的 ✅ | grid/AOI/优先级：大世界的网络裁剪 | CodeLab：AOI 开关下的包量与卡顿对比 | modules/multiplayer/（spawner/cache/replication，已核验） |
 | E4 | 录制与回放：反外挂的引擎地基 ✅ | 只录输入就能重跑全世界——确定性回放、哈希对账、定位首个分叉帧 | CodeLab：输入录制回放器（改一步看全盘崩） | input/main/math_funcs（已核验，回扣 E1） |
-| E5 | 时间同步与时钟漂移 | 两台机器的时间对不上：ping 估延迟、偏移估计、平滑校正 | CodeLab：双时钟漂移与渐进对齐演示 | modules/multiplayer/（sync 时间戳） |
+| E5 | 时间同步与时钟漂移 ✅ | 两台机器的时间对不上：ping 估延迟、偏移估计、平滑校正 | CodeLab：双时钟漂移与渐进对齐演示 | multiplayer_synchronizer/scene_tree/audio_rb_resampler（已核验） |
 
 ## 7. F · 玩法算法与工具链（6 课）
 
 | 课 | 标题 | 一句话 | 实验（可跑） | 走读候选（制作时核验） |
 |---|---|---|---|---|
-| F1 | 寻路：A*、JPS 与 navmesh | 启发式与开放集；网格寻路到导航网格之间的鸿沟 | CodeLab：网格 A* + 路径平滑（权重地图实时涂改） | servers/navigation_3d/ |
-| F2 | 群体避障：boids、flow field 与 RVO 一瞥 | 三种群集思路各自的成本、效果与翻车场景 | CodeLab：500 单位实时避障（三种算法切换） | （外部经典算法为主） |
-| F3 | 相机系统：跟随、震屏与遮挡处理 | 相机是「手感」的引擎级来源：阻尼、look-ahead、预测 | CodeLab：多策略相机对比沙盘（同一操作不同手感） | scene/（camera 相关文件） |
+| F1 | 寻路：A*、JPS 与 navmesh ✅ | 启发式与开放集；网格寻路到导航网格之间的鸿沟 | CodeLab：网格 A* + 路径平滑（权重地图实时涂改） | servers/navigation_3d/（已核验三锚点） |
+| F2 | 群体避障：boids、flow field 与 RVO 一瞥 ✅ | 三种群集思路各自的成本、效果与翻车场景 | CodeLab：500 单位实时避障（三种算法切换） | navigation_agent_2d/obstacle_2d/navigation_server_2d（已核验） |
+| F3 | 相机系统：跟随、震屏与遮挡处理 ✅ | 相机是「手感」的引擎级来源：阻尼、look-ahead、预测 | CodeLab：多策略相机对比沙盘（同一操作不同手感） | camera_2d/camera_3d/viewport（已核验） |
 | F4 | 行为树与 AI 决策：BT vs GOAP vs HTN | 行为树三板斧：节点复用、黑板、中断；GOAP 换来规划自由 | CodeLab：行为树沙盘（黑板 + 打断 + 调试视图） | （外部经典为主） |
 | F5 | UI 深水区：合批、裁剪与 9-slice | retained UI 怎么把一万控件画成十个 draw call | CodeLab：合批与裁剪可视化（回扣主线 L7.1） | scene/gui/（Control 渲染与合批） |
 | F6 | 引擎调试工具链：debug draw、控制台与 HUD | 引擎怎么「看见」自己；一次性把观察手段体系化 | CodeLab：给之前课程实验补一个 debug-draw 层 | scene/ 的 debug 形状实现 |
@@ -99,7 +99,7 @@
 | 课 | 标题 | 一句话 | 实验（可跑） | 走读候选（制作时核验） |
 |---|---|---|---|---|
 | G1 | IK 反向运动学：脚要踩在地上 ✅ | 两骨骼解析解 + FABRIK/CCD 迭代法；IK 是「给结果反推动作」 | CodeLab：脚部贴地沙盘（起伏地形+重量感过渡） | scene/3d/（SkeletonIK/SkeletonModifier 对照） |
-| G2 | 程序化动画与弹簧骨骼 | 二级运动：弹簧-阻尼让头发、尾巴、配饰「活」起来 | CodeLab：弹簧骨骼链（刚度/阻尼实时调） | scene/animation/（动画修改器对照） |
+| G2 | 程序化动画与弹簧骨骼 ✅ | 二级运动：弹簧-阻尼让头发、尾巴、配饰「活」起来 | CodeLab：弹簧骨骼链（刚度/阻尼实时调） | animation_mixer/skeleton_3d/skeleton.glsl（已核验） |
 | G3 | 样条与路径：Catmull-Rom 与 Bézier | 相机轨迹、运动路径、UI 动效的共同数学底座 | CodeLab：样条编辑器（拖控制点、张量/阶数切换） | （外部经典） |
 | G4 | 变形目标：BlendShape 与表情 | morph target 权重混合：顶点的另一条动画路 | CodeLab：2D 网格形变插值（权重滑杆） | servers/rendering/（blend shape 存储） |
 
@@ -168,6 +168,9 @@
 
 **第五批（已完成 ✅）**：D5 → D6 → E1 → E2 → E3 → E4
 （D5/D6 收完大世界与粒子；E1-E4 开通网络与确定性，E5 时间同步顺延下一批）
+
+**第六批（已完成 ✅）**：E5 → F1 → F2 → F3 → G2
+（E5 收完网络确定性；F1-F3 开通玩法算法与工具链；G2 开通角色与动画）
 （手感专题性价比最高；I2/J1 是各自方向的门面；A2/A4 补完碰撞系；B6 补阴影盲区）
 
 制作流程与主线一致：见 COURSE_PLAN.md §4；每课产出 lessons/XX.Y.js → node tools/check-lesson.mjs 通过 → 注册 → build。
