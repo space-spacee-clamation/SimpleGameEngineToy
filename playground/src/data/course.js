@@ -133,7 +133,23 @@ export const STAGES = [
       { id: 'B5', title: '可破坏场景 II：预分片与运行时切割', est: '2 小时', status: 'ready',
         brief: 'Voronoi 预切、碰撞激活脱落、二次破碎。' },
       { id: 'C2', title: '手写 mini-ECS I：Query 与 System', est: '2.5 小时', status: 'ready',
-        brief: '200 行落地 archetype 存储、位掩码 Query 与 System。' }
+        brief: '200 行落地 archetype 存储、位掩码 Query 与 System。' },
+      { id: 'H1', title: '输入手感：缓冲窗口与土狼时间', est: '2 小时', status: 'ready',
+        brief: '为什么有的跳跃「就是舒服」：输入缓冲、土狼时间、可变跳高。' },
+      { id: 'H2', title: '打击感三件套：hit-stop、震屏、闪白', est: '2 小时', status: 'ready',
+        brief: '时间停顿+空间震动+色彩脉冲的三层叠加。' },
+      { id: 'I2', title: '波函数坍缩 WFC：从瓦片到无限城市', est: '2.5 小时', status: 'ready',
+        brief: '最小熵坍缩+约束传播+回溯，局部规则涌现全局结构。' },
+      { id: 'J1', title: 'PBR：从 Blinn-Phong 到金属度/粗糙度', est: '2.5 小时', status: 'ready',
+        brief: '能量守恒、菲涅尔、微表面——L4.2 的直系进阶。' },
+      { id: 'G1', title: 'IK 反向运动学：脚要踩在地上', est: '2 小时', status: 'ready',
+        brief: '解析解与迭代法；动画管动作，IK 管最后几厘米。' },
+      { id: 'A2', title: '接触流形：两个盒子的接触不止一个点', est: '2 小时', status: 'ready',
+        brief: 'SAT→选面→裁剪；多点流形才有稳定堆叠。' },
+      { id: 'A4', title: '约束的艺术：关节、马达与布娃娃', est: '2 小时', status: 'ready',
+        brief: '关节=每步成立的约束方程；可断关节=阈值移除。' },
+      { id: 'B6', title: '阴影专题：shadow mapping 的十大坑', est: '2.5 小时', status: 'ready',
+        brief: 'acne、peter-panning、PCF、CSM——bias 在漏检与误伤间走钢丝。' }
     ]
   }
 ]
