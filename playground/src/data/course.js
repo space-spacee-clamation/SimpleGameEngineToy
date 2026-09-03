@@ -50,13 +50,13 @@ export const STAGES = [
     id: 'P4', name: '阶段 4 · 渲染系统', color: '#f472b6',
     goal: '从第一个三角形到渲染器架构，建立完整的 GPU 心智模型。',
     lessons: [
-      { id: 'L4.1', title: 'GPU 管线总览 + 第一个三角形', est: '2.5 小时', status: 'planned',
+      { id: 'L4.1', title: 'GPU 管线总览 + 第一个三角形', est: '2.5 小时', status: 'ready',
         brief: '一次 draw call 里 GPU 做了什么；CPU/GPU 的边界。' },
       { id: 'L4.2', title: 'Shader 实验室：用 HLSL 手写光照', est: '2–3 小时', status: 'ready',
         brief: '实时编辑片元着色器：渐变 → 圆盘 → Lambert → Blinn-Phong → 菲涅尔。' },
-      { id: 'L4.3', title: '渲染器架构：RenderingServer 与剔除', est: '2.5 小时', status: 'planned',
+      { id: 'L4.3', title: '渲染器架构：RenderingServer 与剔除', est: '2.5 小时', status: 'ready',
         brief: '场景树和渲染数据为什么是两棵树；视锥剔除可视化。' },
-      { id: 'L4.4', title: '帧缓冲与后处理：HDR、Bloom 与阴影', est: '2 小时', status: 'planned',
+      { id: 'L4.4', title: '帧缓冲与后处理：HDR、Bloom 与阴影', est: '2 小时', status: 'ready',
         brief: '多 Pass 渲染：场景 → 亮度提取 → 模糊 → 合成。' }
     ]
   },
@@ -68,7 +68,7 @@ export const STAGES = [
         brief: 'broadphase 的意义：同一场景，配对数差出一个数量级。' },
       { id: 'L5.2', title: '从零写刚体求解：冲量与穿透修正', est: '3 小时', status: 'ready',
         brief: '可编辑的 2D 物理沙盒：检测、冲量、修正三段式。' },
-      { id: 'L5.3', title: 'PhysicsServer：无头服务层与 Jolt', est: '2 小时', status: 'planned',
+      { id: 'L5.3', title: 'PhysicsServer：无头服务层与 Jolt', est: '2 小时', status: 'ready',
         brief: '物理为什么做成 Server；换后端的接口边界画在哪。' }
     ]
   },
@@ -76,7 +76,7 @@ export const STAGES = [
     id: 'P6', name: '阶段 6 · 资源系统', color: '#34d399',
     goal: '资源与节点的分离、序列化与导入管线。',
     lessons: [
-      { id: 'L6.1', title: '资源与导入管线：.tres / pck / 热重载', est: '2 小时', status: 'planned',
+      { id: 'L6.1', title: '资源与导入管线：.tres / pck / 热重载', est: '2 小时', status: 'ready',
         brief: '一张 png 到场景可用之间发生了什么。' }
     ]
   },
@@ -84,11 +84,11 @@ export const STAGES = [
     id: 'P7', name: '阶段 7 · 玩法支撑系统', color: '#60a5fa',
     goal: '输入、UI、动画、音频四大支撑系统的架构。',
     lessons: [
-      { id: 'L7.1', title: '输入、事件与 UI：事件路由与 Immediate GUI', est: '2 小时', status: 'planned',
+      { id: 'L7.1', title: '输入、事件与 UI：事件路由与 Immediate GUI', est: '2 小时', status: 'ready',
         brief: '一次按键的旅程：OS → Input → Viewport → Control。' },
-      { id: 'L7.2', title: '动画系统：骨骼、蒙皮与状态机', est: '2.5 小时', status: 'planned',
+      { id: 'L7.2', title: '动画系统：骨骼、蒙皮与状态机', est: '2.5 小时', status: 'ready',
         brief: '动画数据长什么样；混合树解决什么。' },
-      { id: 'L7.3', title: '音频系统：混音器与 3D 空间音频', est: '1.5 小时', status: 'planned',
+      { id: 'L7.3', title: '音频系统：混音器与 3D 空间音频', est: '1.5 小时', status: 'ready',
         brief: '60fps 游戏如何平滑输出 48kHz 音频（两套时钟）。' }
     ]
   },
@@ -96,11 +96,11 @@ export const STAGES = [
     id: 'P8', name: '阶段 8 · 引擎级进阶', color: '#c084fc',
     goal: '多线程、网络、编辑器——引擎级复杂系统架构。',
     lessons: [
-      { id: 'L8.1', title: '多线程与 Job System：任务并行', est: '2.5 小时', status: 'planned',
+      { id: 'L8.1', title: '多线程与 Job System：任务并行', est: '2.5 小时', status: 'ready',
         brief: '主线程/渲染线程分工；WorkerThreadPool 与任务图。' },
-      { id: 'L8.2', title: '网络同步：状态同步、帧同步与回滚', est: '2.5 小时', status: 'planned',
+      { id: 'L8.2', title: '网络同步：状态同步、帧同步与回滚', est: '2.5 小时', status: 'ready',
         brief: '本地延迟模拟沙盒：亲手治疗网络拉扯。' },
-      { id: 'L8.3', title: '编辑器架构：Undo/Redo 与编辑器即场景', est: '2 小时', status: 'planned',
+      { id: 'L8.3', title: '编辑器架构：Undo/Redo 与编辑器即场景', est: '2 小时', status: 'ready',
         brief: '命令模式；反射生成 Inspector。' }
     ]
   },
@@ -108,7 +108,7 @@ export const STAGES = [
     id: 'P9', name: '阶段 9 · 毕业实战', color: '#fbbf24',
     goal: '方法论沉淀与毕业项目。',
     lessons: [
-      { id: 'L9.1', title: '大型 C++ 项目阅读方法论', est: '2 小时', status: 'planned',
+      { id: 'L9.1', title: '大型 C++ 项目阅读方法论', est: '2 小时', status: 'ready',
         brief: '垂直走读 vs 水平走读；三条 Godot 走读线路。' },
       { id: 'L9.2', title: '毕业项目：给 Godot 加功能 / mini-engine / 深度报告', est: '自定', status: 'ready',
         brief: '可展示、可讲述、可被追问。' }

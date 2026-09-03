@@ -10,6 +10,18 @@ import L3_2 from './L3.2.js'
 import L2_4 from './L2.4.js'
 import L3_1 from './L3.1.js'
 import L9_2 from './L9.2.js'
+import L6_1 from './L6.1.js'
+import L4_1 from './L4.1.js'
+import L4_3 from './L4.3.js'
+import L4_4 from './L4.4.js'
+import L5_3 from './L5.3.js'
+import L7_1 from './L7.1.js'
+import L7_3 from './L7.3.js'
+import L8_1 from './L8.1.js'
+import L9_1 from './L9.1.js'
+import L7_2 from './L7.2.js'
+import L8_2 from './L8.2.js'
+import L8_3 from './L8.3.js'
 import L4_2 from './L4.2.js'
 import L5_1 from './L5.1.js'
 import L5_2 from './L5.2.js'
@@ -26,6 +38,18 @@ export const LESSONS = {
   'L2.4': L2_4,
   'L3.1': L3_1,
   'L9.2': L9_2,
+  'L6.1': L6_1,
+  'L4.1': L4_1,
+  'L4.3': L4_3,
+  'L4.4': L4_4,
+  'L5.3': L5_3,
+  'L7.1': L7_1,
+  'L7.3': L7_3,
+  'L8.1': L8_1,
+  'L9.1': L9_1,
+  'L7.2': L7_2,
+  'L8.2': L8_2,
+  'L8.3': L8_3,
   'L4.2': L4_2,
   'L5.1': L5_1,
   'L5.2': L5_2
