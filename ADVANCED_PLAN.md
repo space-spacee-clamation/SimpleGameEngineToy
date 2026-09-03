@@ -38,7 +38,7 @@
 | A2 ⭐ | 接触流形：两个盒子的接触不止一个点 ✅ | SAT 之后还要 reference-face 裁剪；多点接触决定堆叠稳不稳 | CodeLab：单步演示裁剪生成接触点；PhysicsLab：1 点 vs 多点堆叠对比 | modules/godot_physics_3d/ 的 SAT/collision solver 文件 |
 | A3 ⭐ | 求解器进阶：迭代、暖启动与 island ✅ | sequential impulse 全景；为什么塔会抖、会果冻 | CodeLab：迭代次数 × 暖启动开关的堆叠稳定性矩阵 | modules/godot_physics_3d/ 的 step/body/solver |
 | A4 | 约束的艺术：关节、马达与布娃娃 ✅ | 关节=方程，马达=驱动项，可断关节=阈值 | CodeLab：链条/布娃娃 + 断裂阈值调节 | modules/godot_physics_3d/ 的 joints 文件 |
-| A5 | 软体入门：PBD——把「力」换成「位置」 | Verlet 布料、距离约束、XPBD 一瞥 | CodeLab：可撕的布料（鼠标撕裂约束） | 外部经典算法为主，Godot 锚点弱（如实标注） |
+| A5 | 软体入门：PBD——把「力」换成「位置」 ✅ | Verlet 布料、距离约束、XPBD 一瞥 | CodeLab：可撕的布料（鼠标撕裂约束） | 已核验：godot_soft_body_3d（内置即 PBD 求解器）+ jolt_soft_body_3d（XPBD，源码注释含公式换算） |
 
 ## 3. B · 渲染深水区（8 课）⭐
 
@@ -50,16 +50,16 @@
 | B4 ⭐ | 可破坏场景 I：像素/体素破坏 ✅ | 破坏 mask → 连通域分裂 → 孤岛掉落 | CodeLab：2D 可破坏地形（炸坑、孤岛坠落） | modules/（tilemap 与体素思路对照） |
 | B5 ⭐ | 可破坏场景 II：预分片与运行时切割 ✅ | Voronoi 预切、凸分解、破坏层级与物理联动 | CodeLab：预分片墙被撞碎（接 PhysicsLab 碰撞事件） | modules/godot_physics_3d/（body 事件） |
 | B6 | 阴影专题：shadow mapping 的十大坑 ✅ | 深度偏差、彼得潘、走样、PCF、CSM 级联 | ShaderLab：2D 场景 shadow map + PCF 对比 | servers/rendering/renderer_rd/（light/shadow 存储） |
-| B7 | 透明物排序与 OIT 一瞥 | 画家算法为何不可靠；sort key 与 OI 思想 | CodeLab：排序错误现场可视化 | servers/rendering/（transparent 排序段） |
-| B8 | Raymarching 专题：没有网格的渲染 | sphere tracing、SDF 布尔白送 CSG、数值法线 | ShaderLab：SDF 场景（u_mouse 移动光源） | servers/rendering/renderer_rd/shaders/ |
+| B7 | 透明物排序与 OIT 一瞥 ✅ | 画家算法为何不可靠；sort key 与 OI 思想 | CodeLab：排序错误现场可视化 | servers/rendering/（transparent 排序段） |
+| B8 | Raymarching 专题：没有网格的渲染 ✅ | sphere tracing、SDF 布尔白送 CSG、数值法线 | ShaderLab：SDF 场景（u_mouse 移动光源） | servers/rendering/renderer_rd/shaders/ |
 
 ## 4. C · ECS 与数据导向专题（4 课）⭐ 独立成系
 
 | 课 | 标题 | 一句话 | 实验（可跑） | 走读候选（制作时核验） |
 |---|---|---|---|---|
-| C1 | ECS 世界观：archetype vs sparse set vs Node | 三种存储的内存布局与遍历命运 | CodeLab：三种存储遍历成本沙盘（呼应 L3.2） | core/object/object.h、scene/main/node.cpp（对照） |
+| C1 | ECS 世界观：archetype vs sparse set vs Node ✅ | 三种存储的内存布局与遍历命运 | CodeLab：三种存储遍历成本沙盘（呼应 L3.2） | core/object/object.h、scene/main/node.cpp（对照） |
 | C2 ⭐ | 手写 mini-ECS I：Query 与 System ✅ | 200 行 JS 造 archetype 存储 + 查询 | CodeLab：mini-ECS 骨架现场写 | （外部 Bevy/EnTT 概念对照，无源码依赖） |
-| C3 | 手写 mini-ECS II：调度、脏标记与事件 | system 依赖图、change detection、deferred 事件 | CodeLab：调度图 + 脏标记演示 | servers 的 RID 世界（无 Node 的数据导向） |
+| C3 | 手写 mini-ECS II：调度、脏标记与事件 ✅ | system 依赖图、change detection、deferred 事件 | CodeLab：调度图 + 脏标记演示 | servers 的 RID 世界（无 Node 的数据导向） |
 | C4 | ECS 落地：渲染/物理/网络怎么吃 ECS | 同一游戏两套实现的帧耗时与快照对比 | CodeLab：Node 树 vs mini-ECS 的实测对比 | scene/main/scene_tree.cpp（对照） |
 
 ## 5. D · 大世界与粒子（6 课）
@@ -158,7 +158,10 @@
 
 **第一批（已完成 ✅）**：A1 → A3 → B1 → B2 → B3 → B4 → B5 → C2
 
-**第二批建议**：H1 → H2 → I2 → J1 → G1 → A2 → A4 → B6
+**第二批建议**：H1 → H2 → I2 → J1 → G1 → A2 → A4 → B6（已完成 ✅）
+
+**第三批（已完成 ✅）**：A5 → B7 → B8 → C1 → C3
+（B7/B8 收尾渲染深水区；A5 补完碰撞系；C1+C3 收完 ECS 三部曲）
 （手感专题性价比最高；I2/J1 是各自方向的门面；A2/A4 补完碰撞系；B6 补阴影盲区）
 
 制作流程与主线一致：见 COURSE_PLAN.md §4；每课产出 lessons/XX.Y.js → node tools/check-lesson.mjs 通过 → 注册 → build。

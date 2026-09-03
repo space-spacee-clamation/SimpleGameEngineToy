@@ -149,7 +149,17 @@ export const STAGES = [
       { id: 'A4', title: '约束的艺术：关节、马达与布娃娃', est: '2 小时', status: 'ready',
         brief: '关节=每步成立的约束方程；可断关节=阈值移除。' },
       { id: 'B6', title: '阴影专题：shadow mapping 的十大坑', est: '2.5 小时', status: 'ready',
-        brief: 'acne、peter-panning、PCF、CSM——bias 在漏检与误伤间走钢丝。' }
+        brief: 'acne、peter-panning、PCF、CSM——bias 在漏检与误伤间走钢丝。' },
+      { id: 'A5', title: '软体入门：PBD——把「力」换成「位置」', est: '2 小时', status: 'ready',
+        brief: 'Verlet 布料、距离约束投影、撕裂与迭代次数；Godot 内置软体就是 PBD，Jolt 是 XPBD。' },
+      { id: 'B7', title: '透明物排序与 OIT 一瞥', est: '2 小时', status: 'ready',
+        brief: '混合不可交换；穿插玻璃板的四种活法；Godot 2D z 桶/y-sort 与 3D 透明列表排序。' },
+      { id: 'B8', title: 'Raymarching 专题：没有网格的渲染', est: '2 小时', status: 'ready',
+        brief: 'SDF、sphere tracing、布尔 CSG 白送、数值法线；引擎里字面命名的 raymarch 在 voxel_gi。' },
+      { id: 'C1', title: 'ECS 世界观：archetype vs sparse set vs Node', est: '2 小时', status: 'ready',
+        brief: '三种存储的内存布局与遍历命运；查询便宜是布局送的，不是代码送的。' },
+      { id: 'C3', title: '手写 mini-ECS II：调度、脏标记与事件', est: '2.5 小时', status: 'ready',
+        brief: '拓扑调度、版本号脏标记、帧末事件派发——给 C2 的骨架装上管家婆三层。' }
     ]
   }
 ]

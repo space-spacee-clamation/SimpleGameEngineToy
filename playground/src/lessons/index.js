@@ -41,6 +41,11 @@ import A4 from './A4.js'
 import H2 from './H2.js'
 import G1 from './G1.js'
 import A2 from './A2.js'
+import A5 from './A5.js'
+import B7 from './B7.js'
+import B8 from './B8.js'
+import C1 from './C1.js'
+import C3 from './C3.js'
 
 export const LESSONS = {
   'L0.1': L0_1,
@@ -84,5 +89,10 @@ export const LESSONS = {
   'A4': A4,
   'H2': H2,
   'G1': G1,
-  'A2': A2
+  'A2': A2,
+  'A5': A5,
+  'B7': B7,
+  'B8': B8,
+  'C1': C1,
+  'C3': C3
 }
