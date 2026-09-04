@@ -191,7 +191,17 @@ export const STAGES = [
       { id: 'F3', title: '相机系统：跟随、震屏与遮挡处理', est: '2 小时', status: 'ready',
         brief: '四种跟随策略 + trauma 震屏——手感是被滤波出来的。' },
       { id: 'G2', title: '程序化动画与弹簧骨骼', est: '2 小时', status: 'ready',
-        brief: '12 节弹簧链：刚度/阻尼两个旋钮调出千种尾巴，鞭子效应现场甩给你看。' }
+        brief: '12 节弹簧链：刚度/阻尼两个旋钮调出千种尾巴，鞭子效应现场甩给你看。' },
+      { id: 'F4', title: '行为树与 AI 决策：BT vs GOAP vs HTN', est: '2 小时', status: 'ready',
+        brief: '黑板+打断+调试视图：每帧重 tick 的 AI 为什么天生可打断。' },
+      { id: 'F5', title: 'UI 深水区：合批、裁剪与 9-slice', est: '2 小时', status: 'ready',
+        brief: '同屏 UI 两本账：draw call 从几十塌缩到 3；脏矩形与裁剪的可视化。' },
+      { id: 'F6', title: '引擎调试工具链：debug draw、控制台与 HUD', est: '2 小时', status: 'ready',
+        brief: '五层观察沙盘：碰撞框/速度/射线/网格/剖析条，带帧号的引擎自省。' },
+      { id: 'G3', title: '样条与路径：Catmull-Rom 与 Bézier', est: '2 小时', status: 'ready',
+        brief: '过点 vs 逼近两种哲学；弧长重参数化治好「忽快忽慢」的走点。' },
+      { id: 'G4', title: '变形目标：BlendShape 与表情', est: '2 小时', status: 'ready',
+        brief: 'final = base + Σwᵢ·deltaᵢ：权重叠加表情，冲突区现场演示。' }
     ]
   }
 ]

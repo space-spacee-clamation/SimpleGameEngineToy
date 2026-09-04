@@ -90,9 +90,9 @@
 | F1 | 寻路：A*、JPS 与 navmesh ✅ | 启发式与开放集；网格寻路到导航网格之间的鸿沟 | CodeLab：网格 A* + 路径平滑（权重地图实时涂改） | servers/navigation_3d/（已核验三锚点） |
 | F2 | 群体避障：boids、flow field 与 RVO 一瞥 ✅ | 三种群集思路各自的成本、效果与翻车场景 | CodeLab：500 单位实时避障（三种算法切换） | navigation_agent_2d/obstacle_2d/navigation_server_2d（已核验） |
 | F3 | 相机系统：跟随、震屏与遮挡处理 ✅ | 相机是「手感」的引擎级来源：阻尼、look-ahead、预测 | CodeLab：多策略相机对比沙盘（同一操作不同手感） | camera_2d/camera_3d/viewport（已核验） |
-| F4 | 行为树与 AI 决策：BT vs GOAP vs HTN | 行为树三板斧：节点复用、黑板、中断；GOAP 换来规划自由 | CodeLab：行为树沙盘（黑板 + 打断 + 调试视图） | （外部经典为主） |
-| F5 | UI 深水区：合批、裁剪与 9-slice | retained UI 怎么把一万控件画成十个 draw call | CodeLab：合批与裁剪可视化（回扣主线 L7.1） | scene/gui/（Control 渲染与合批） |
-| F6 | 引擎调试工具链：debug draw、控制台与 HUD | 引擎怎么「看见」自己；一次性把观察手段体系化 | CodeLab：给之前课程实验补一个 debug-draw 层 | scene/ 的 debug 形状实现 |
+| F4 | 行为树与 AI 决策：BT vs GOAP vs HTN ✅ | 行为树三板斧：节点复用、黑板、中断；GOAP 换来规划自由 | CodeLab：行为树沙盘（黑板 + 打断 + 调试视图） | object.h 信号/message_queue/node 树（已核验，弱锚点如实标注） |
+| F5 | UI 深水区：合批、裁剪与 9-slice ✅ | retained UI 怎么把一万控件画成十个 draw call | CodeLab：合批与裁剪可视化（回扣主线 L7.1） | control/label/renderer_canvas_cull（已核验） |
+| F6 | 引擎调试工具链：debug draw、控制台与 HUD ✅ | 引擎怎么「看见」自己；一次性把观察手段体系化 | CodeLab：给之前课程实验补一个 debug-draw 层 | debug_effects/performance/debugger_server（已核验） |
 
 ## 8. G · 角色与动画深水区（4 课）
 
@@ -100,8 +100,8 @@
 |---|---|---|---|---|
 | G1 | IK 反向运动学：脚要踩在地上 ✅ | 两骨骼解析解 + FABRIK/CCD 迭代法；IK 是「给结果反推动作」 | CodeLab：脚部贴地沙盘（起伏地形+重量感过渡） | scene/3d/（SkeletonIK/SkeletonModifier 对照） |
 | G2 | 程序化动画与弹簧骨骼 ✅ | 二级运动：弹簧-阻尼让头发、尾巴、配饰「活」起来 | CodeLab：弹簧骨骼链（刚度/阻尼实时调） | animation_mixer/skeleton_3d/skeleton.glsl（已核验） |
-| G3 | 样条与路径：Catmull-Rom 与 Bézier | 相机轨迹、运动路径、UI 动效的共同数学底座 | CodeLab：样条编辑器（拖控制点、张量/阶数切换） | （外部经典） |
-| G4 | 变形目标：BlendShape 与表情 | morph target 权重混合：顶点的另一条动画路 | CodeLab：2D 网格形变插值（权重滑杆） | servers/rendering/（blend shape 存储） |
+| G3 | 样条与路径：Catmull-Rom 与 Bézier ✅ | 相机轨迹、运动路径、UI 动效的共同数学底座 | CodeLab：样条编辑器（拖控制点、张量/阶数切换） | curve/curve_texture/geometry_2d（已核验） |
+| G4 | 变形目标：BlendShape 与表情 ✅ | morph target 权重混合：顶点的另一条动画路 | CodeLab：2D 网格形变插值（权重滑杆） | mesh_storage 的 blend_shape 段（已核验） |
 
 ## 9. H · 手感与反馈专题（4 课）⭐ 最容易被低估的引擎级内容
 
@@ -171,6 +171,9 @@
 
 **第六批（已完成 ✅）**：E5 → F1 → F2 → F3 → G2
 （E5 收完网络确定性；F1-F3 开通玩法算法与工具链；G2 开通角色与动画）
+
+**第七批（已完成 ✅）**：F4 → F5 → F6 → G3 → G4
+（F4-F6 收完玩法算法与工具链；G3/G4 收完角色与动画）
 （手感专题性价比最高；I2/J1 是各自方向的门面；A2/A4 补完碰撞系；B6 补阴影盲区）
 
 制作流程与主线一致：见 COURSE_PLAN.md §4；每课产出 lessons/XX.Y.js → node tools/check-lesson.mjs 通过 → 注册 → build。
