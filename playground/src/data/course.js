@@ -223,7 +223,17 @@ export const STAGES = [
       { id: 'K1', title: 'DSP 基础：采样、量化与混叠', est: '2 小时', status: 'ready',
         brief: '奈奎斯特线外的频率折返成假音；量化阶梯——示波器+频谱双视角。' },
       { id: 'K2', title: '程序化音效：振荡器、包络与滤波', est: '2 小时', status: 'ready',
-        brief: '波形×包络×滤波三件套：示波器+谐波条，8-bit 音效的合成现场。' }
+        brief: '波形×包络×滤波三件套：示波器+谐波条，8-bit 音效的合成现场。' },
+      { id: 'K3', title: '混响与空间声学一瞥', est: '2 小时', status: 'ready',
+        brief: '梳状×4+全通×2 的算法混响：房间的签名与干湿比的缓调过渡。' },
+      { id: 'L1', title: '性能剖析器怎么做', est: '2 小时', status: 'ready',
+        brief: '帧时间线+热点榜+插桩开销自测——把「感觉卡」变成「寻路 15ms」。' },
+      { id: 'L2', title: '存档系统深水区：版本迁移', est: '2 小时', status: 'ready',
+        brief: '四级存档迁移链：关掉迁移裸读老档，看玩家进度当场蒸发。' },
+      { id: 'L3', title: 'Mod 与脚本 API 设计', est: '2 小时', status: 'ready',
+        brief: '沙箱+白名单+预算三道防线：删档小丑 mod 被当场拦下的现场。' },
+      { id: 'L4', title: '贴花系统：弹孔怎么贴上去', est: '2 小时', status: 'ready',
+        brief: '投影盒/fade/图集预算——越界渗透与 LRU 淘汰的调度艺术。' }
     ]
   }
 ]

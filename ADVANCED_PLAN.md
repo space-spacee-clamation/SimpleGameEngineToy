@@ -136,16 +136,16 @@
 |---|---|---|---|---|
 | K1 | DSP 基础：采样、量化与混叠 ✅ | 奈奎斯特为什么是铁律；欠采样如何制造假频率 | CodeLab：波形合成+混叠可视化 | audio_server/audio_rb_resampler/spectrum_analyzer（已核验） |
 | K2 | 程序化音效：振荡器、包络与滤波 ✅ | 音色=波形+包络+滤波；合成器三件套 | CodeLab：迷你合成器面板（波形图实时演算） | audio_effect_filter/eq_filter/distortion（已核验） |
-| K3 | 混响与空间声学一瞥 | 卷积思想：脉冲响应如何给房间「签名」 | CodeLab：脉冲响应与反射衰减可视化 | servers/audio/effects/（reverb） |
+| K3 | 混响与空间声学一瞥 ✅ | 卷积思想：脉冲响应如何给房间「签名」 | CodeLab：脉冲响应与反射衰减可视化 | reverb/reverb_filter/delay（已核验） |
 
 ## 13. L · 引擎系统补遗（4 课）
 
 | 课 | 标题 | 一句话 | 实验（可跑） | 走读候选（制作时核验） |
 |---|---|---|---|---|
-| L1 | 性能剖析器怎么做 | 插桩 vs 采样、时间线、热点：引擎怎么给自己做体检 | CodeLab：迷你 profiler（帧时间线+热点榜） | editor/debugger/（profiler 对照） |
-| L2 | 存档系统深水区：版本迁移 | 格式演进、向后兼容、迁移链：玩家进度凭什么十年不丢 | CodeLab：存档版本迁移沙盘 | core/io/（序列化） |
-| L3 | Mod 与脚本 API 设计 | 怎么让别人安全地扩展你的游戏：沙箱、钩子、能力白名单 | CodeLab：迷你 mod 加载器（受限 API 演示） | modules/gdscript/（沙箱 VM 对照） |
-| L4 | 贴花系统：弹孔怎么贴上去 | 投影 decal：裁剪、深度冲突、合批 | CodeLab：2D 投影贴花沙盘 | servers/rendering/（decal） |
+| L1 | 性能剖析器怎么做 ✅ | 插桩 vs 采样、时间线、热点：引擎怎么给自己做体检 | CodeLab：迷你 profiler（帧时间线+热点榜） | performance/debugger_server/editor_log（已核验） |
+| L2 | 存档系统深水区：版本迁移 ✅ | 格式演进、向后兼容、迁移链：玩家进度凭什么十年不丢 | CodeLab：存档版本迁移沙盘 | resource_format_text/binary/config_file（已核验） |
+| L3 | Mod 与脚本 API 设计 ✅ | 怎么让别人安全地扩展你的游戏：沙箱、钩子、能力白名单 | CodeLab：迷你 mod 加载器（受限 API 演示） | gdscript_vm/gdscript/script_language（已核验） |
+| L4 | 贴花系统：弹孔怎么贴上去 ✅ | 投影 decal：裁剪、深度冲突、合批 | CodeLab：2D 投影贴花沙盘 | decal/texture_storage/decal_data_inc（已核验） |
 
 ## 14. 平台增强 backlog（不阻塞以上任何一课）
 
@@ -180,6 +180,9 @@
 
 **第九批（已完成 ✅）**：J2 → J3 → J4 → K1 → K2
 （J2-J4 收完图形管线补充；K1/K2 开通音频与 DSP）
+
+**第十批（已完成 ✅）**：K3 → L1 → L2 → L3 → L4
+（K3 收完音频与 DSP；L1-L4 收完引擎系统补遗——**12 方向 57 课全部上线** 🎉）
 （手感专题性价比最高；I2/J1 是各自方向的门面；A2/A4 补完碰撞系；B6 补阴影盲区）
 
 制作流程与主线一致：见 COURSE_PLAN.md §4；每课产出 lessons/XX.Y.js → node tools/check-lesson.mjs 通过 → 注册 → build。
