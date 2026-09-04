@@ -67,6 +67,11 @@ import F5 from './F5.js'
 import F6 from './F6.js'
 import G3 from './G3.js'
 import G4 from './G4.js'
+import H3 from './H3.js'
+import H4 from './H4.js'
+import I1 from './I1.js'
+import I3 from './I3.js'
+import I4 from './I4.js'
 
 export const LESSONS = {
   'L0.1': L0_1,
@@ -136,5 +141,10 @@ export const LESSONS = {
   'F5': F5,
   'F6': F6,
   'G3': G3,
-  'G4': G4
+  'G4': G4,
+  'H3': H3,
+  'H4': H4,
+  'I1': I1,
+  'I3': I3,
+  'I4': I4
 }

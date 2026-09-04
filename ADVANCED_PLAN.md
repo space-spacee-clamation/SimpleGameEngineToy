@@ -109,17 +109,17 @@
 |---|---|---|---|---|
 | H1 ⭐ | 输入手感：缓冲窗口与土狼时间 ✅ | 为什么有的跳跃「就是舒服」：input buffer、coyote time、预测 | CodeLab：平台跳跃对照沙盘（每项技巧独立开关） | core/input/（回扣主线 L7.1） |
 | H2 ⭐ | 打击感三件套：hit-stop、震屏、闪白 ✅ | 打击停顿的时间艺术；三件套参数如何叠加成「打击感」 | CodeLab：连击沙盘（三件套独立开关+衰减参数） | （外部经典） |
-| H3 | 时间系统架构：timeScale 与分层时间 | 子弹时间/时停/慢镜：引擎级时间缩放与「每个实体自己的时钟」 | CodeLab：多实体异构时间流（主角慢、敌人快） | main/（time scale 相关） |
-| H4 | 反馈色光语言：闪白、暗角与色偏 | 屏幕效果如何「报告」游戏状态：低血量暗角、受击闪白 | ShaderLab：暗角+色偏+闪白合成 | servers/rendering/（environment） |
+| H3 | 时间系统架构：timeScale 与分层时间 ✅ | 子弹时间/时停/慢镜：引擎级时间缩放与「每个实体自己的时钟」 | CodeLab：多实体异构时间流（主角慢、敌人快） | scene_tree/main/os（已核验） |
+| H4 | 反馈色光语言：闪白、暗角与色偏 ✅ | 屏幕效果如何「报告」游戏状态：低血量暗角、受击闪白 | ShaderLab：暗角+色偏+闪白合成 | tonemap.glsl/luminance_reduce/fog（已核验） |
 
 ## 10. I · 程序化生成专题（4 课）
 
 | 课 | 标题 | 一句话 | 实验（可跑） | 走读候选（制作时核验） |
 |---|---|---|---|---|
-| I1 | 噪声大观：Perlin、Simplex 与 Worley | 每种噪声的性格；倍频叠加与域扭曲 | ShaderLab：四噪声全家福（参数化切换） | modules/noise/（FastNoiseLite） |
+| I1 | 噪声大观：Perlin、Simplex 与 Worley ✅ | 每种噪声的性格；倍频叠加与域扭曲 | ShaderLab：四噪声全家福（参数化切换） | modules/noise/（noise/fastnoise_lite/noise_texture_2d，已核验） |
 | I2 ⭐ | 波函数坍缩 WFC：从瓦片到无限城市 ✅ | 约束传播+最小熵：程序化生成的瑞士军刀 | CodeLab：瓦片坍缩沙盘（逐步坍缩+回溯可视化） | modules/tilemap/（相邻约束对照） |
-| I3 | L-system 与结构生长 | 重写系统：树、河流、街区一把抓 | CodeLab：龟绘图（角度/长度/迭代实时调） | （外部经典） |
-| I4 | 引擎级随机数：种子流与确定性 | 种子管理、流分离、可复现（回扣 E1 与主线质检） | CodeLab：RNG 分布与流分离可视化 | core/math/（RandomPCG） |
+| I3 | L-system 与结构生长 ✅ | 重写系统：树、河流、街区一把抓 | CodeLab：龟绘图（角度/长度/迭代实时调） | vector.h/curve/geometry_2d（已核验，弱锚点如实标注） |
+| I4 | 引擎级随机数：种子流与确定性 ✅ | 种子管理、流分离、可复现（回扣 E1 与主线质检） | CodeLab：RNG 分布与流分离可视化 | random_pcg/random_number_generator/os（已核验） |
 
 ## 11. J · 图形管线补充（4 课）
 
@@ -174,6 +174,9 @@
 
 **第七批（已完成 ✅）**：F4 → F5 → F6 → G3 → G4
 （F4-F6 收完玩法算法与工具链；G3/G4 收完角色与动画）
+
+**第八批（已完成 ✅）**：H3 → H4 → I1 → I3 → I4
+（H3/H4 开通手感反馈的深水区；I1/I3/I4 开通程序化生成）
 （手感专题性价比最高；I2/J1 是各自方向的门面；A2/A4 补完碰撞系；B6 补阴影盲区）
 
 制作流程与主线一致：见 COURSE_PLAN.md §4；每课产出 lessons/XX.Y.js → node tools/check-lesson.mjs 通过 → 注册 → build。

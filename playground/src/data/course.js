@@ -201,7 +201,17 @@ export const STAGES = [
       { id: 'G3', title: '样条与路径：Catmull-Rom 与 Bézier', est: '2 小时', status: 'ready',
         brief: '过点 vs 逼近两种哲学；弧长重参数化治好「忽快忽慢」的走点。' },
       { id: 'G4', title: '变形目标：BlendShape 与表情', est: '2 小时', status: 'ready',
-        brief: 'final = base + Σwᵢ·deltaᵢ：权重叠加表情，冲突区现场演示。' }
+        brief: 'final = base + Σwᵢ·deltaᵢ：权重叠加表情，冲突区现场演示。' },
+      { id: 'H3', title: '时间系统架构：timeScale 与分层时间', est: '2 小时', status: 'ready',
+        brief: '子弹时间/顿帧/区域减速——全局缩放+实体时钟+真实秒计时器四件套。' },
+      { id: 'H4', title: '反馈色光语言：闪白、暗角与色偏', est: '2 小时', status: 'ready',
+        brief: '暗角讲压迫、闪白讲确认、色偏讲状态——屏幕肌肉的语言学。' },
+      { id: 'I1', title: '噪声大观：Perlin、Simplex 与 Worley', est: '2 小时', status: 'ready',
+        brief: '四噪声全家福四联屏：格点存数值还是存梯度、fbm 旋钮、Worley 细胞。' },
+      { id: 'I3', title: 'L-system 与结构生长', est: '2 小时', status: 'ready',
+        brief: '重写规则+龟绘图：角度/衰减/迭代三旋钮，看着一棵树从字符串里长出来。' },
+      { id: 'I4', title: '引擎级随机数：种子流与确定性', est: '2 小时', status: 'ready',
+        brief: '种子/流分离/坏算法的条纹——存档回放敢押注的地基。' }
     ]
   }
 ]
