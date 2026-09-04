@@ -73,6 +73,11 @@ import I1 from './I1.js'
 import I3 from './I3.js'
 import I4 from './I4.js'
 import L3_1A from './L3.1A.js'
+import J2 from './J2.js'
+import J3 from './J3.js'
+import J4 from './J4.js'
+import K1 from './K1.js'
+import K2 from './K2.js'
 
 export const LESSONS = {
   'L0.1': L0_1,
@@ -148,5 +153,10 @@ export const LESSONS = {
   'I1': I1,
   'I3': I3,
   'I4': I4,
-  'L3.1A': L3_1A
+  'L3.1A': L3_1A,
+  'J2': J2,
+  'J3': J3,
+  'J4': J4,
+  'K1': K1,
+  'K2': K2
 }

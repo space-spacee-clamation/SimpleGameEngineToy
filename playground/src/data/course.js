@@ -213,7 +213,17 @@ export const STAGES = [
       { id: 'I3', title: 'L-system 与结构生长', est: '2 小时', status: 'ready',
         brief: '重写规则+龟绘图：角度/衰减/迭代三旋钮，看着一棵树从字符串里长出来。' },
       { id: 'I4', title: '引擎级随机数：种子流与确定性', est: '2 小时', status: 'ready',
-        brief: '种子/流分离/坏算法的条纹——存档回放敢押注的地基。' }
+        brief: '种子/流分离/坏算法的条纹——存档回放敢押注的地基。' },
+      { id: 'J2', title: '颜色空间：gamma 的骗局', est: '2 小时', status: 'ready',
+        brief: '三联屏对比：sRGB 直接混合的糊、线性混合的净、忘编码的泛白。' },
+      { id: 'J3', title: 'mipmap 与纹理走样：远处为什么闪烁', est: '2 小时', status: 'ready',
+        brief: '欠采样的摩尔纹烟花 vs 三线性与各向异性的安静糊法。' },
+      { id: 'J4', title: '2D 光照与视野多边形', est: '2 小时', status: 'ready',
+        brief: '墙角三射线求可见多边形；格子 FOV——同一道几何题的连续与离散版。' },
+      { id: 'K1', title: 'DSP 基础：采样、量化与混叠', est: '2 小时', status: 'ready',
+        brief: '奈奎斯特线外的频率折返成假音；量化阶梯——示波器+频谱双视角。' },
+      { id: 'K2', title: '程序化音效：振荡器、包络与滤波', est: '2 小时', status: 'ready',
+        brief: '波形×包络×滤波三件套：示波器+谐波条，8-bit 音效的合成现场。' }
     ]
   }
 ]

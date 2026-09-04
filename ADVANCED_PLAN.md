@@ -126,16 +126,16 @@
 | 课 | 标题 | 一句话 | 实验（可跑） | 走读候选（制作时核验） |
 |---|---|---|---|---|
 | J1 ⭐ | PBR：从 Blinn-Phong 到金属度/粗糙度 ✅ | 能量守恒、菲涅尔、微表面——L4.2 的直系进阶 | ShaderLab：PBR 球（金属度/粗糙度滑杆） | servers/rendering/（PBR 材质 shader） |
-| J2 | 颜色空间：gamma 的骗局 | sRGB vs linear：为什么混合会变糊、光照必须在线性空间算 | ShaderLab：gamma 混合对比（一眨眼就懂） | servers/rendering/（sRGB 转换段） |
-| J3 | mipmap 与纹理走样：远处为什么闪烁 | 采样定理的图形学版本；三线性与各向异性过滤 | ShaderLab：棋盘格 mip 演示 | servers/rendering/（mip 生成） |
-| J4 | 2D 光照与视野多边形 | 阴影投射+可见性：roguelike FOV 的经典算法 | CodeLab：光源遮挡沙盘（墙线段→可见多边形） | servers/rendering/（canvas light 遮挡） |
+| J2 | 颜色空间：gamma 的骗局 ✅ | sRGB vs linear：为什么混合会变糊、光照必须在线性空间算 | ShaderLab：gamma 混合对比（一眨眼就懂） | texture_storage/tonemap.glsl/canvas.glsl（已核验） |
+| J3 | mipmap 与纹理走样：远处为什么闪烁 ✅ | 采样定理的图形学版本；三线性与各向异性过滤 | ShaderLab：棋盘格 mip 演示 | texture_storage/image/image_texture（已核验） |
+| J4 | 2D 光照与视野多边形 ✅ | 阴影投射+可见性：roguelike FOV 的经典算法 | CodeLab：光源遮挡沙盘（墙线段→可见多边形） | canvas_occlusion/light_occluder_2d/light_2d（已核验） |
 
 ## 12. K · 音频与 DSP（3 课）
 
 | 课 | 标题 | 一句话 | 实验（可跑） | 走读候选（制作时核验） |
 |---|---|---|---|---|
-| K1 | DSP 基础：采样、量化与混叠 | 奈奎斯特为什么是铁律；欠采样如何制造假频率 | CodeLab：波形合成+混叠可视化 | servers/audio/ |
-| K2 | 程序化音效：振荡器、包络与滤波 | 音色=波形+包络+滤波；合成器三件套 | CodeLab：迷你合成器面板（波形图实时演算） | servers/audio/effects/ |
+| K1 | DSP 基础：采样、量化与混叠 ✅ | 奈奎斯特为什么是铁律；欠采样如何制造假频率 | CodeLab：波形合成+混叠可视化 | audio_server/audio_rb_resampler/spectrum_analyzer（已核验） |
+| K2 | 程序化音效：振荡器、包络与滤波 ✅ | 音色=波形+包络+滤波；合成器三件套 | CodeLab：迷你合成器面板（波形图实时演算） | audio_effect_filter/eq_filter/distortion（已核验） |
 | K3 | 混响与空间声学一瞥 | 卷积思想：脉冲响应如何给房间「签名」 | CodeLab：脉冲响应与反射衰减可视化 | servers/audio/effects/（reverb） |
 
 ## 13. L · 引擎系统补遗（4 课）
@@ -177,6 +177,9 @@
 
 **第八批（已完成 ✅）**：H3 → H4 → I1 → I3 → I4
 （H3/H4 开通手感反馈的深水区；I1/I3/I4 开通程序化生成）
+
+**第九批（已完成 ✅）**：J2 → J3 → J4 → K1 → K2
+（J2-J4 收完图形管线补充；K1/K2 开通音频与 DSP）
 （手感专题性价比最高；I2/J1 是各自方向的门面；A2/A4 补完碰撞系；B6 补阴影盲区）
 
 制作流程与主线一致：见 COURSE_PLAN.md §4；每课产出 lessons/XX.Y.js → node tools/check-lesson.mjs 通过 → 注册 → build。
