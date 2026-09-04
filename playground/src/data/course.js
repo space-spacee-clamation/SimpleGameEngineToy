@@ -42,6 +42,8 @@ export const STAGES = [
     lessons: [
       { id: 'L3.1', title: '变换与四元数：万向节死锁可视化', est: '2 小时', status: 'ready',
         brief: '为什么旋转不用欧拉角；slerp 为什么安全。' },
+      { id: 'L3.1A', title: '四元数的数学原理：从复数到旋转公式', est: '2 小时', status: 'ready',
+        brief: 'L3.1 补充：哈密顿积、夹心公式 q·v·q*、双倍覆盖与 slerp 的数学推导，全部可拖可验。' },
       { id: 'L3.2', title: '引擎数学库设计：SIMD、缓存与布局', est: '1.5 小时', status: 'ready',
         brief: '引擎数学库和教科书数学差在哪。' }
     ]

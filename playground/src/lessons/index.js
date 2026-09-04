@@ -72,6 +72,7 @@ import H4 from './H4.js'
 import I1 from './I1.js'
 import I3 from './I3.js'
 import I4 from './I4.js'
+import L3_1A from './L3.1A.js'
 
 export const LESSONS = {
   'L0.1': L0_1,
@@ -146,5 +147,6 @@ export const LESSONS = {
   'H4': H4,
   'I1': I1,
   'I3': I3,
-  'I4': I4
+  'I4': I4,
+  'L3.1A': L3_1A
 }
