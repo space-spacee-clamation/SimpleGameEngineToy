@@ -58,6 +58,8 @@ export const STAGES = [
         brief: '实时编辑片元着色器：渐变 → 圆盘 → Lambert → Blinn-Phong → 菲涅尔。' },
       { id: 'L4.3', title: '渲染器架构：RenderingServer 与剔除', est: '2.5 小时', status: 'ready',
         brief: '场景树和渲染数据为什么是两棵树；视锥剔除可视化。' },
+      { id: 'L4.3A', title: '工业级剔除：BVH 分层与 GPU 驱动', est: '2 小时', status: 'ready',
+        brief: 'L4.3 补充：BVH 三种结局、GPU-driven 与遮挡谱系——剔除成本正比于视锥扫过的块数，不是物体数。' },
       { id: 'L4.4', title: '帧缓冲与后处理：HDR、Bloom 与阴影', est: '2 小时', status: 'ready',
         brief: '多 Pass 渲染：场景 → 亮度提取 → 模糊 → 合成。' }
     ]
@@ -68,6 +70,8 @@ export const STAGES = [
     lessons: [
       { id: 'L5.1', title: '碰撞检测：空间网格 vs 暴力 O(n²)', est: '2 小时', status: 'ready',
         brief: 'broadphase 的意义：同一场景，配对数差出一个数量级。' },
+      { id: 'L5.1A', title: '工业级碰撞检测：broadphase 谱系、GJK 与玩法机制', est: '2.5 小时', status: 'ready',
+        brief: 'L5.1 补充：broadphase 五家族与时间相干性、GJK/Minkowski 差亲手走一遍、层掩码/触发器/单向平台——碰撞是一条管线，不是一个 if。' },
       { id: 'L5.2', title: '从零写刚体求解：冲量与穿透修正', est: '3 小时', status: 'ready',
         brief: '可编辑的 2D 物理沙盒：检测、冲量、修正三段式。' },
       { id: 'L5.3', title: 'PhysicsServer：无头服务层与 Jolt', est: '2 小时', status: 'ready',

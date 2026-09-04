@@ -24,6 +24,7 @@ import L8_2 from './L8.2.js'
 import L8_3 from './L8.3.js'
 import L4_2 from './L4.2.js'
 import L5_1 from './L5.1.js'
+import L5_1A from './L5.1A.js'
 import L5_2 from './L5.2.js'
 import A1 from './A1.js'
 import B5 from './B5.js'
@@ -73,6 +74,7 @@ import I1 from './I1.js'
 import I3 from './I3.js'
 import I4 from './I4.js'
 import L3_1A from './L3.1A.js'
+import L4_3A from './L4.3A.js'
 import J2 from './J2.js'
 import J3 from './J3.js'
 import J4 from './J4.js'
@@ -110,6 +112,7 @@ export const LESSONS = {
   'L8.3': L8_3,
   'L4.2': L4_2,
   'L5.1': L5_1,
+  'L5.1A': L5_1A,
   'L5.2': L5_2,
   'A1': A1,
   'B5': B5,
@@ -159,6 +162,7 @@ export const LESSONS = {
   'I3': I3,
   'I4': I4,
   'L3.1A': L3_1A,
+  'L4.3A': L4_3A,
   'J2': J2,
   'J3': J3,
   'J4': J4,
